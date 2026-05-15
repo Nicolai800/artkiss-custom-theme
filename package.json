@@ -4,7 +4,9 @@
   "description": "Artkiss custom WooCommerce theme",
   "main": "gulpfile.js",
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
     "gulp": "^4.0.1",
+    "lenis": "^1.3.23",
     "sass": "^1.99.0"
   },
   "devDependencies": {
