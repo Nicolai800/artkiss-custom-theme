@@ -1,0 +1,59 @@
+/* =========================================================
+   COLOURS
+   ========================================================= */
+
+// Base palette
+$white: #fff9f5;
+$black: #3e3028;
+
+// Backgrounds
+$bg-primary: #f6f0ea;
+$bg-secondary: #efe4d7;
+$bg-footer: #dcc8b6;
+
+// Text
+$text-primary: #5f5147;
+$heading-color: #3e3028;
+$text-secondary: #8a786b;
+$text-light: #fff9f5;
+
+// Accent
+$accent-color: #c79b84;
+$accent-hover: #b7866d;
+$accent-active: #9d6d57;
+
+// UI
+$border-color: #e7d9cb;
+$card-bg: rgba(255, 255, 255, 0.45);
+
+// Status
+$success-color: #7c9a7a;
+$error-color: #c97c6d;
+
+// Shadow
+$shadow-soft: 0 10px 30px rgba(120, 85, 60, 0.08);
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+$heading-font-family: "Cormorant Garamond", serif;
+$body-font-family: "Inter", sans-serif;
+
+/* =========================================================
+   BREAKPOINTS
+   ========================================================= */
+
+$breakpoint-ul: 1600px;
+$breakpoint-lg: 1200px;
+$breakpoint-md: 992px;
+$breakpoint-sm: 768px;
+$breakpoint-xs: 576px;
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+$timing: ease-in-out;
+$transition: all 0.3s $timing;
+$transition-slow: all 0.6s $timing;

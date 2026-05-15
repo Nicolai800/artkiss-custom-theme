@@ -1,0 +1,36 @@
+@charset 'UTF-8';
+
+// 1. Configuration
+@use "abstracts/variables";
+@use "abstracts/mixins";
+
+// 2. Vendors
+@use "vendor/aos";
+
+// 3. Utilities
+@use "utils/reset";
+@use "utils/wp";
+
+// 4. Base stuff
+@use "base/base";
+@use "base/image";
+@use "base/button";
+@use "base/fonts";
+@use "base/label";
+@use "base/input";
+@use "base/select";
+@use "base/textarea";
+@use "base/list";
+@use "base/typography";
+
+// 5. Layout-related sections
+@use "layouts/container";
+@use "layouts/main";
+@use "layouts/header";
+@use "layouts/footer";
+
+// 5.1 Layout-related home sections
+@use "layouts/home_s1";
+@use "layouts/home_s2";
+@use "layouts/home_s3";
+@use "layouts/home_s4";

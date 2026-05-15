@@ -1,0 +1,103 @@
+@use "sass:color";
+@use "../abstracts" as *;
+
+/* =========================================================
+   BASE BUTTON
+   ========================================================= */
+
+.button1,
+.wc-block-components-button,
+.wc-block-cart__submit-button,
+.wc-block-components-checkout-place-order-button {
+  @include flexCenter;
+  column-gap: 1.5rem;
+  min-width: 25rem;
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+  font-weight: 600;
+  color: $text-light;
+
+  background: linear-gradient(
+    135deg,
+    $accent-color 0%,
+    color.adjust($accent-color, $lightness: -8%) 100%
+  );
+
+  border-radius: 16px;
+  border: 1px solid rgba($white, 0.25);
+
+  box-shadow:
+    0 4px 15px rgba($accent-color, 0.25),
+    inset 0 1px 1px rgba($white, 0.3);
+
+  padding: 2.3rem 1rem 2.1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  /* Shine effect */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba($white, 0) 0%,
+      rgba($white, 0.2) 50%,
+      rgba($white, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: all 0.7s ease;
+    z-index: -1;
+  }
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      color.adjust($accent-color, $lightness: 5%) 0%,
+      color.adjust($accent-color, $lightness: -5%) 100%
+    );
+    box-shadow:
+      0 10px 25px rgba($accent-color, 0.4),
+      0 0 15px rgba($accent-color, 0.3),
+      inset 0 1px 2px rgba($white, 0.5);
+    transform: translateY(-3px);
+    border-color: rgba($white, 0.5);
+    color: $text-light;
+
+    &::before {
+      left: 200%;
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow:
+      0 4px 10px rgba($accent-color, 0.3),
+      inset 0 1px 2px rgba($white, 0.2);
+  }
+}
+
+/* =========================================================
+   WOOCOMMERCE DEFAULT BUTTONS
+   ========================================================= */
+
+.woocommerce button.button.alt,
+.woocommerce-page button.button.alt,
+.woocommerce a.button.alt,
+.woocommerce-page a.button.alt,
+.woocommerce input.button.alt,
+.woocommerce-page input.button.alt {
+  @extend .button1;
+  min-width: auto;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}

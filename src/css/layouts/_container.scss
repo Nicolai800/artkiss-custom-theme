@@ -1,0 +1,63 @@
+@use "../abstracts" as *;
+
+.l-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20rem;
+
+  @include ul {
+    padding: 0 12rem;
+  }
+
+  @include lg {
+    padding: 0 8rem;
+  }
+
+  @include md {
+    padding: 0 4rem;
+  }
+
+  @include xs {
+    padding: 0 2rem;
+  }
+
+  &--large {
+    padding: 0 32rem;
+
+    @include ul {
+      padding: 0 16rem;
+    }
+
+    @include lg {
+      padding: 0 10rem;
+    }
+
+    @include md {
+      padding: 0 6rem;
+    }
+
+    @include xs {
+      padding: 0 2.5rem;
+    }
+  }
+
+  &--full {
+    padding: 0 8rem;
+
+    @include ul {
+      padding: 0 4rem;
+    }
+
+    @include lg {
+      padding: 0 3rem;
+    }
+
+    @include md {
+      padding: 0 2rem;
+    }
+
+    @include xs {
+      padding: 0 1rem;
+    }
+  }
+}
