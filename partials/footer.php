@@ -11,13 +11,14 @@
                 </a>
             <?php endif; ?>
 
-            <?php // Меню
-            wp_nav_menu([
-                'theme_location' => 'footer',
-                'container'      => false,
-                'class'          => 'l-footer__menu',
-                //'fallback_cb'    => false,
-            ]); ?>
+            <div class="l-footer__menu">
+                <?php // Меню
+                wp_nav_menu([
+                    'theme_location' => 'footer',
+                    'container'      => false,
+                    'menu_class'     => 'menu',
+                ]); ?>
+            </div>
 
             <?php 
             get_template_part('partials/social-media'); ?>
@@ -26,19 +27,8 @@
 
         <div class="l-footer__bottom">
 
-            <?php 
-            $policy_page = get_page_by_path('polityka-prywatnosci');
-            if ($policy_page) : ?>
-                <div class="l-footer__policy">
-                    <a href="<?php echo esc_url(get_permalink($policy_page)); ?>">
-                        Polityka prywatności
-                    </a>
-                </div>
-            <?php endif; ?>
-
-            <?php ?>
             <div class="l-footer__copyright">
-                <span>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Wszelkie prawa zastrzeżone.</span>
+                <span>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. <a href="<?php echo esc_url(home_url('/polityka-prywatnosci/')); ?>">Polityka prywatności</a></span>
             </div>
 
             <?php  ?>

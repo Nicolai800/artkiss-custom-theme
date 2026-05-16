@@ -85,9 +85,8 @@ gulp.task("watchphp", function () {
 const runWatchers = () => {
   gulp.watch(["*.php", "**/*.php"], gulp.series("watchphp"));
   gulp.watch(dirs.css, gulp.series("css"));
-  gulp.watch(dirs.js, gulp.series("js"));
-  gulp.watch(dirs.jslib, gulp.series("jslibs"));
-  gulp.watch(dirs.js, gulp.series("combine-jsbuild"));
+  gulp.watch(dirs.js, gulp.series("js", "combine-jsbuild"));
+  gulp.watch(dirs.jslib, gulp.series("jslibs", "combine-jsbuild"));
   livereload.listen();
 };
 

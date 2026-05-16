@@ -25,7 +25,6 @@ $hero_url    = $hero['hero_button_url'] ?? '';
             <?php endif; ?>
             
             <?php
-            // Fallback to desktop image if available, else use mobile
             $fallback_url = $hero_bg ? $hero_bg['url'] : $hero_bg_mob['url'];
             ?>
             <img

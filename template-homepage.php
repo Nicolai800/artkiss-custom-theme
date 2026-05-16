@@ -8,5 +8,6 @@
 get_header();
 
 get_template_part('partials/home_s1');
+get_template_part('partials/home_s2');
 
 get_footer();

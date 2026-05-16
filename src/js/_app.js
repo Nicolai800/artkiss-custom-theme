@@ -8,6 +8,18 @@ class App {
   }
 
   /**
+   * Init AOS
+   */
+  initAOS() {
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        once: true,
+        offset: 50,
+      });
+    }
+  }
+
+  /**
    * Class toggler
    */
   activeClassToggler() {
@@ -45,6 +57,7 @@ class App {
 
   init() {
     this.initHeadroom();
+    this.initAOS();
     this.activeClassToggler();
     this.initFaq();
     this.pageReady();
