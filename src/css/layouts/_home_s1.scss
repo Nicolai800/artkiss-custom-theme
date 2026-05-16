@@ -3,7 +3,11 @@
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 75vh;
+
+  @include md {
+    min-height: 100vh;
+  }
 
   /* =========================================================
      BACKGROUND IMAGE
@@ -16,7 +20,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 80% 100%;
     z-index: 0;
+
+    @include md {
+      object-position: center;
+    }
   }
 
   /* =========================================================
@@ -26,20 +35,21 @@
   &__container {
     position: relative;
     z-index: 3;
-    min-height: 100vh;
+    min-height: 75vh;
     display: flex;
-    align-items: center;
-    padding-top: 12rem;
-    padding-bottom: 8rem;
-
-    @include md {
-      align-items: flex-end;
-      padding-bottom: 6rem;
-    }
+    align-items: stretch;
+    padding-top: calc(#{$header-offset-mobile} + 2rem);
+    padding-bottom: 1rem;
 
     @include sm {
-      padding-top: 10rem;
-      padding-bottom: 4rem;
+      padding-bottom: 2rem;
+    }
+
+    @include md {
+      min-height: 100vh;
+      align-items: center;
+      padding-top: $header-offset-desktop;
+      padding-bottom: 8rem;
     }
   }
 
@@ -48,13 +58,14 @@
      ========================================================= */
 
   &__content {
-    max-width: 60rem;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+    flex: 1;
 
     @include md {
-      max-width: 100%;
+      max-width: 60rem;
     }
   }
 
@@ -64,11 +75,15 @@
 
   &__label {
     display: inline-block;
-    color: $accent-color;
+    color: $text-light;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-size: 1.3rem;
     font-weight: 500;
+
+    @include md {
+      color: $accent-color;
+    }
   }
 
   /* =========================================================
@@ -76,12 +91,12 @@
      ========================================================= */
 
   &__title {
-    color: $heading-color;
-    text-shadow: 0 2px 20px rgba($bg-primary, 0.3);
+    color: $text-light;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 
     @include md {
-      color: $text-light;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      color: $heading-color;
+      text-shadow: 0 2px 20px rgba($bg-primary, 0.3);
     }
   }
 
@@ -91,14 +106,14 @@
 
   &__desc {
     // color: $text-primary;
-    color: $heading-color;
+    color: $text-light;
     font-size: 1.8rem;
     line-height: 1.7;
     max-width: 48rem;
     font-weight: 600;
 
     @include md {
-      color: $text-light;
+      color: $heading-color;
     }
   }
 
@@ -107,7 +122,11 @@
      ========================================================= */
 
   &__actions {
-    margin-top: 1rem;
+    margin-top: auto;
+
+    @include md {
+      margin-top: 1rem;
+    }
 
     .button1 {
       min-width: auto;

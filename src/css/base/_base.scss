@@ -11,15 +11,15 @@ body {
    ========================================================= */
 
 html {
-  font-size: 62.5%;
+  font-size: 50%;
   scroll-behavior: smooth;
 
-  @include md {
+  @include sm {
     font-size: 56.25%;
   }
 
-  @include sm {
-    font-size: 50%;
+  @include md {
+    font-size: 62.5%;
   }
 }
 

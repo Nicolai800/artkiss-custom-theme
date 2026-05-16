@@ -11,16 +11,16 @@
   z-index: 100;
 
   &__container {
-    padding-bottom: 1.5rem;
-    padding-top: 1.5rem;
+    padding-bottom: 0;
+    padding-top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: $transition-slow;
 
     @include md {
-      padding-top: 0;
-      padding-bottom: 0;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
     }
   }
 
@@ -38,20 +38,20 @@
   }
 
   &__menu {
-    display: flex;
+    display: none;
     transition: $transition-slow;
 
     @include lg {
-      display: none;
+      display: flex;
     }
 
     .menu {
       @include flexContentItems(space-between, center);
-      column-gap: 6rem;
+      column-gap: 4rem;
       transition: $transition-slow;
 
       @include ul {
-        column-gap: 4rem;
+        column-gap: 6rem;
       }
 
       > li {
@@ -216,10 +216,10 @@
 
 .header {
   &--unpinned {
-    transform: translateY(-100%);
+    transform: none;
 
     @include md {
-      transform: none;
+      transform: translateY(-100%);
     }
   }
 

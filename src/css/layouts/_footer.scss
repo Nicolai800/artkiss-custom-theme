@@ -9,15 +9,18 @@
      ========================================================= */
 
   &__top {
-    @include flexContentItems(space-between, center);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     padding-bottom: 4rem;
     border-bottom: 1px solid $border-color;
-    gap: 4rem;
+    gap: 3rem;
 
     @include md {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 3rem;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 4rem;
     }
   }
 
@@ -33,15 +36,18 @@
 
   &__menu {
     .menu {
-      @include flexContentItems(center, center);
-      column-gap: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
       flex-wrap: wrap;
-      gap: 2rem;
 
       @include md {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        column-gap: 4rem;
       }
 
       li a {
@@ -62,14 +68,17 @@
      ========================================================= */
 
   &__bottom {
-    @include flexContentItems(space-between, center);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     padding-top: 3rem;
     flex-wrap: wrap;
     gap: 2rem;
 
     @include md {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
@@ -100,9 +109,10 @@
     border: 1px solid $border-color;
     color: $text-primary;
     transition: $transition;
+    align-self: flex-end;
 
     @include md {
-      align-self: flex-end;
+      align-self: auto;
     }
 
     &:hover {

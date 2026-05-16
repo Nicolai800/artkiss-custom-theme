@@ -6,24 +6,35 @@ if (!$hero) {
     return;
 }
 
-$hero_bg    = $hero['hero_bg_image'] ?? '';
-$hero_label = $hero['hero_label'] ?? '';
-$hero_title = $hero['hero_title'] ?? '';
-$hero_desc  = $hero['hero_description'] ?? '';
-$hero_btn   = $hero['hero_button_text'] ?? '';
-$hero_url   = $hero['hero_button_url'] ?? '';
+$hero_bg     = $hero['hero_bg_image'] ?? '';
+$hero_bg_mob = $hero['hero_bg_image_mob'] ?? '';
+$hero_label  = $hero['hero_label'] ?? '';
+$hero_title  = $hero['hero_title'] ?? '';
+$hero_desc   = $hero['hero_description'] ?? '';
+$hero_btn    = $hero['hero_button_text'] ?? '';
+$hero_url    = $hero['hero_button_url'] ?? '';
 
 ?>
 
 <section class="hero">
 
-    <?php if ($hero_bg) : ?>
-        <img
-            class="hero__bg-img"
-            src="<?php echo esc_url($hero_bg['url']); ?>"
-            alt=""
-            aria-hidden="true"
-        >
+    <?php if ($hero_bg || $hero_bg_mob) : ?>
+        <picture class="hero__bg-picture">
+            <?php if ($hero_bg_mob) : ?>
+                <source media="(max-width: 768px)" srcset="<?php echo esc_url($hero_bg_mob['url']); ?>">
+            <?php endif; ?>
+            
+            <?php
+            // Fallback to desktop image if available, else use mobile
+            $fallback_url = $hero_bg ? $hero_bg['url'] : $hero_bg_mob['url'];
+            ?>
+            <img
+                class="hero__bg-img"
+                src="<?php echo esc_url($fallback_url); ?>"
+                alt=""
+                aria-hidden="true"
+            >
+        </picture>
     <?php endif; ?>
 
     <div class="hero__container l-container">

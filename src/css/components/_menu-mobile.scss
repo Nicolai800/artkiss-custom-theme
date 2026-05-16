@@ -2,11 +2,11 @@
 
 .c-menu-mobile {
 
-  display: none;
+  display: flex;
+  align-items: center;
 
   @include lg {
-    display: flex;
-    align-items: center;
+    display: none;
   }
 
   /* =========================================================

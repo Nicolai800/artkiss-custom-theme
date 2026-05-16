@@ -10,32 +10,35 @@
   }
 }
 
-@mixin ul {
-  @media screen and (max-width: $breakpoint-ul) {
-    @content;
-  }
-}
+// Mobile-first media queries (min-width)
+// Default styles apply to mobile (< 576px)
 
-@mixin lg {
-  @media screen and (max-width: $breakpoint-lg) {
-    @content;
-  }
-}
-
-@mixin md {
-  @media screen and (max-width: $breakpoint-md) {
+@mixin xs {
+  @media screen and (min-width: $breakpoint-xs) {
     @content;
   }
 }
 
 @mixin sm {
-  @media screen and (max-width: $breakpoint-sm) {
+  @media screen and (min-width: $breakpoint-sm) {
     @content;
   }
 }
 
-@mixin xs {
-  @media screen and (max-width: $breakpoint-xs) {
+@mixin md {
+  @media screen and (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin ul {
+  @media screen and (min-width: $breakpoint-ul) {
     @content;
   }
 }
