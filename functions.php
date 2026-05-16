@@ -17,6 +17,7 @@ require_once( FUNCTIONS_DIR . 'acf.php' );
 require_once( FUNCTIONS_DIR . 'register_nav_menus.php' );
 require_once( FUNCTIONS_DIR . 'image_sizes.php' );
 require_once( FUNCTIONS_DIR . 'support.php' );
+require_once( FUNCTIONS_DIR . 'customizer.php' );
 require_once( FUNCTIONS_DIR . 'admin.php' );
 require_once( FUNCTIONS_DIR . 'utils.php' );
 require_once( FUNCTIONS_DIR . 'helpers.php' );

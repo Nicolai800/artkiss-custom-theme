@@ -1,0 +1,230 @@
+@use "../abstracts" as *;
+
+.l-header {
+  @include glass;
+  border-radius: 0 0 16px 16px;
+  transition: 0.5s cubic-bezier(0.87, -0.41, 0.19, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  &__container {
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: $transition-slow;
+
+    @include md {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__branding {
+    display: flex;
+    max-width: 22rem;
+
+    img {
+      transition: $transition-slow;
+
+      &:hover {
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    transition: $transition-slow;
+
+    @include lg {
+      display: none;
+    }
+
+    .menu {
+      @include flexContentItems(space-between, center);
+      column-gap: 6rem;
+      transition: $transition-slow;
+
+      @include ul {
+        column-gap: 4rem;
+      }
+
+      > li {
+        position: relative;
+        transition: $transition;
+        padding-bottom: 0.5rem;
+
+        > a {
+          color: $text-primary;
+          font-size: 1.5rem;
+          font-weight: 500;
+          text-decoration: none;
+          transition: $transition;
+
+          &:hover {
+            color: $accent-color;
+          }
+        }
+
+        &.current-menu-item {
+          &::after {
+            opacity: 1;
+            width: 60%;
+          }
+        }
+
+        &.menu-item-has-children {
+          @include flexContentItems(flex-start, center);
+          column-gap: 1rem;
+
+          &:hover > {
+            .sub-menu {
+              display: block;
+            }
+
+            .menu-item-arrow svg {
+              transform: rotate(180deg);
+            }
+          }
+
+          .menu-item-arrow {
+            @include flexCenter;
+
+            svg {
+              transition: $transition;
+              fill: $text-primary;
+            }
+          }
+
+          .sub-menu {
+            @include glass;
+            display: none;
+            position: absolute;
+            top: 100%;
+            min-width: max-content;
+
+            .menu-item-arrow {
+              padding-left: 2rem;
+
+              svg {
+                transform: rotate(-90deg);
+              }
+            }
+
+            li {
+              border-radius: 16px;
+              position: relative;
+              padding: 2rem;
+              transition: $transition;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              a {
+                color: $text-primary;
+                transition: $transition;
+              }
+
+              &.menu-item-has-children:hover > .sub-menu {
+                display: block;
+              }
+
+              &:hover {
+                background-color: $accent-color;
+
+                > a {
+                  color: $text-light;
+                }
+
+                > .menu-item-arrow svg {
+                  fill: $text-light;
+                }
+              }
+            }
+
+            .sub-menu {
+              top: 0;
+              left: 100%;
+            }
+          }
+        }
+
+        &:hover::after {
+          opacity: 1;
+          width: 60%;
+        }
+
+        &::after {
+          opacity: 0;
+          transition: $transition;
+          content: "";
+          width: 0;
+          height: 2px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background-color: $accent-color;
+        }
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__box {
+    @include flexContentItems(space-between, center);
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+.c-cart-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $text-primary;
+  transition: $transition;
+
+  &:hover {
+    color: $accent-color;
+  }
+
+  &__count {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}
+
+/* =========================================================
+   HEADROOM
+   ========================================================= */
+
+.header {
+  &--unpinned {
+    transform: translateY(-100%);
+
+    @include md {
+      transform: none;
+    }
+  }
+
+  &--pinned,
+  &--top {
+    transform: translateY(0);
+  }
+}

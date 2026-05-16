@@ -1,0 +1,144 @@
+@use "../abstracts" as *;
+
+.l-footer {
+  background-color: $bg-footer;
+  padding: 6rem 0 3rem;
+
+  /* =========================================================
+     TOP
+     ========================================================= */
+
+  &__top {
+    @include flexContentItems(space-between, center);
+    padding-bottom: 4rem;
+    border-bottom: 1px solid $border-color;
+    gap: 4rem;
+
+    @include md {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3rem;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    max-width: 20rem;
+    transition: $transition;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__menu {
+    .menu {
+      @include flexContentItems(center, center);
+      column-gap: 4rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      @include md {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      li a {
+        color: $text-primary;
+        font-size: 1.5rem;
+        font-weight: 500;
+        transition: $transition;
+
+        &:hover {
+          color: $accent-color;
+        }
+      }
+    }
+  }
+
+  /* =========================================================
+     BOTTOM
+     ========================================================= */
+
+  &__bottom {
+    @include flexContentItems(space-between, center);
+    padding-top: 3rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    @include md {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__policy {
+    a {
+      color: $text-secondary;
+      font-size: 1.4rem;
+      transition: $transition;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+
+  &__copyright {
+    span {
+      color: $text-secondary;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__up {
+    @include flexCenter;
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    border: 1px solid $border-color;
+    color: $text-primary;
+    transition: $transition;
+
+    @include md {
+      align-self: flex-end;
+    }
+
+    &:hover {
+      background-color: $accent-color;
+      border-color: $accent-color;
+      color: $text-light;
+      transform: translateY(-3px);
+    }
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+/* =========================================================
+   SOCIAL MEDIA
+   ========================================================= */
+
+.social-media {
+  &__item {
+    @include flexContentItems(flex-start, center);
+    gap: 1rem;
+    color: $text-primary;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: $transition;
+    padding: 0.5rem 0;
+
+    &:hover {
+      color: $accent-color;
+    }
+
+    svg {
+      transition: $transition;
+    }
+  }
+}

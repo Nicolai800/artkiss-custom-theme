@@ -6,6 +6,11 @@
 add_theme_support('post-thumbnails');
 
 /**
+ * Add custom logo support
+ */
+add_theme_support('custom-logo');
+
+/**
  * Add title support for rankmath
  */
 add_theme_support( 'title-tag' );

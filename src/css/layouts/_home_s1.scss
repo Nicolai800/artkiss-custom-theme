@@ -1,0 +1,117 @@
+@use "../abstracts" as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+
+  /* =========================================================
+     BACKGROUND IMAGE
+     ========================================================= */
+
+  &__bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  /* =========================================================
+     CONTAINER
+     ========================================================= */
+
+  &__container {
+    position: relative;
+    z-index: 3;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 12rem;
+    padding-bottom: 8rem;
+
+    @include md {
+      align-items: flex-end;
+      padding-bottom: 6rem;
+    }
+
+    @include sm {
+      padding-top: 10rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  /* =========================================================
+     CONTENT
+     ========================================================= */
+
+  &__content {
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    @include md {
+      max-width: 100%;
+    }
+  }
+
+  /* =========================================================
+     LABEL
+     ========================================================= */
+
+  &__label {
+    display: inline-block;
+    color: $accent-color;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  /* =========================================================
+     TITLE
+     ========================================================= */
+
+  &__title {
+    color: $heading-color;
+    text-shadow: 0 2px 20px rgba($bg-primary, 0.3);
+
+    @include md {
+      color: $text-light;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  /* =========================================================
+     DESCRIPTION
+     ========================================================= */
+
+  &__desc {
+    // color: $text-primary;
+    color: $heading-color;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    max-width: 48rem;
+    font-weight: 600;
+
+    @include md {
+      color: $text-light;
+    }
+  }
+
+  /* =========================================================
+     ACTIONS
+     ========================================================= */
+
+  &__actions {
+    margin-top: 1rem;
+
+    .button1 {
+      min-width: auto;
+      padding: 1.6rem 3.2rem;
+    }
+  }
+}
