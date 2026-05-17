@@ -1,2 +1,49 @@
+@use "../abstracts" as *;
 
+.home-s3 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
+  @include md {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 4rem;
+    
+    @include md {
+      margin-bottom: 6rem;
+    }
+  }
+
+  &__title {
+    color: $heading-color;
+    margin-bottom: 1.5rem;
+  }
+
+  &__desc {
+    max-width: 60rem;
+    margin: 0 auto;
+    color: $text-secondary;
+  }
+
+  &__grid {
+    display: grid;
+    // 2 columns on mobile
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @include md {
+      // 3 columns on tablet/desktop
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    @include lg {
+      // 3 columns with larger gap or 4 cols if requested
+      gap: 4rem;
+    }
+  }
+}

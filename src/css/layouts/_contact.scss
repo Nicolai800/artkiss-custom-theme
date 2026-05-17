@@ -1,0 +1,161 @@
+@use "../abstracts" as *;
+
+.contact-page {
+  padding-top: calc(#{$header-offset-mobile} + 4rem);
+  padding-bottom: 6rem;
+
+  @include md {
+    padding-top: calc(#{$header-offset-desktop} + 3rem);
+    padding-bottom: 2rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center; // Vertically center on desktop
+  }
+
+  &__container {
+    width: 100%;
+  }
+
+  &__title {
+    color: $heading-color;
+    margin-bottom: 3rem;
+    text-align: center;
+
+    @include md {
+      margin-bottom: 4rem; // Reduced to save vertical space
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6rem;
+
+    @include md {
+      grid-template-columns: 1fr 1fr; // 2 columns on desktop
+      gap: 8rem;
+    }
+
+    @include lg {
+      gap: 12rem;
+    }
+  }
+
+  /* =========================================================
+     LEFT COLUMN: INFO
+     ========================================================= */
+
+  // Общие стили для обеих карточек (DRY)
+  &__info,
+  &__form-wrapper {
+    background-color: $bg-secondary;
+    padding: 4rem 3rem;
+    border-radius: 1.5rem;
+    box-shadow: $shadow-soft;
+    border: 1px solid rgba($accent-hover, 0.4);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; // Reduced to fit screen
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    border-bottom: 1px solid rgba($border-color, 0.5);
+    padding-bottom: 1rem;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem; // Reduced
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__value {
+    font-size: 1.6rem; // Reduced
+    color: $heading-color;
+    line-height: 1.4;
+
+    strong {
+      font-weight: 600;
+      font-family: $heading-font-family;
+      font-size: 2.2rem; // Reduced
+    }
+  }
+
+  &__link {
+    color: $accent-color;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      color: $accent-hover;
+      text-decoration: underline;
+    }
+  }
+
+  &__socials {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba($border-color, 0.5);
+    
+    // Style the social media component to fit here
+    .social-media {
+      display: flex;
+      gap: 2rem;
+      justify-content: flex-start;
+
+      &__item {
+        color: $text-secondary;
+        transition: $transition;
+        
+        span {
+          display: none; // Only show icons
+        }
+
+        &:hover {
+          color: $accent-color;
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+
+  /* =========================================================
+     RIGHT COLUMN: FORM
+     ========================================================= */
+
+  &__form-wrapper {
+    @include md {
+      padding: 4rem 5rem; // Slightly reduced padding to save vertical space
+    }
+  }
+
+  &__form-title {
+    margin-bottom: 2.5rem;
+    color: $heading-color;
+    font-size: 3.2rem;
+    
+    @include md {
+      font-size: 3.6rem; // Slightly smaller to save space
+    }
+  }
+
+  &__form {
+    // Form specific spacing if needed. The actual input styling 
+    // is already handled by _input.scss (.wpcf7-form and .form-control)
+    
+    .wpcf7 {
+      margin: 0;
+    }
+  }
+}

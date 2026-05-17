@@ -8,7 +8,9 @@
 .button1,
 .wc-block-components-button,
 .wc-block-cart__submit-button,
-.wc-block-components-checkout-place-order-button {
+.wc-block-components-checkout-place-order-button,
+.cf7-theme-btnn,
+ul.products li.product .button {
   @include flexCenter;
   column-gap: 1.5rem;
   min-width: 25rem;

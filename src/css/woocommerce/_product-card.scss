@@ -1,0 +1,108 @@
+@use "../abstracts" as *;
+
+ul.products li.product {
+  background-color: rgba($white, 0.7);
+  border-radius: 1.5rem;
+  box-shadow: $shadow-soft;
+  border: 1px solid rgba($accent-hover, 0.4);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative;
+
+  @include md {
+    padding: 1.5rem;
+  }
+
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(120, 85, 60, 0.12);
+    }
+  }
+
+  .star-rating {
+    display: none;
+  }
+
+  .woocommerce-LoopProduct-link {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba($black, 0.05);
+  }
+
+
+  .woocommerce-loop-product__title {
+    font-family: $heading-font-family;
+    font-size: 1.8rem;
+    color: $heading-color;
+    margin-bottom: 1rem;
+    padding: 0;
+    font-weight: 600;
+
+    @include md {
+      font-size: 2rem;
+    }
+  }
+
+  
+  .price {
+    font-family: $body-font-family;
+    font-size: 1.6rem;
+    color: $accent-color;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    
+    @include md {
+      font-size: 1.8rem;
+    }
+    
+    
+    del {
+      color: rgba($text-secondary, 0.6);
+      font-weight: 400;
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+    }
+
+    ins {
+      text-decoration: none;
+      color: $accent-active;
+    }
+  }
+
+  .button {
+    margin-top: auto;
+    min-width: 0;
+    padding: 1rem 0.5rem;
+    font-size: 1.3rem;
+
+    @include md {
+      padding: 1.2rem;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+ul.products {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  &::before, &::after {
+    display: none;
+  }
+}

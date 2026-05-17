@@ -1,24 +1,103 @@
+@use "../abstracts" as *;
+
 /* =========================================================
-   INPUTS
+   CONTACT FORM 7 & INPUTS
    ========================================================= */
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"] {
+.wpcf7-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  > * {
+    width: 100%;
+    margin: 0;
+  }
+
+  // Hide CF7 auto-generated line breaks that break layouts
+  br {
+    display: none;
+  }
+
+  // Name and Email sit side-by-side on desktop
+  > p:has(.wpcf7-form-control-wrap.your-name),
+  > p:has(.wpcf7-form-control-wrap.your-email) {
+    @include md {
+      width: calc(50% - 0.75rem);
+    }
+  }
+  
+  // Handle WP CF7 span wrappers
+  .wpcf7-form-control-wrap {
+    display: block;
+    width: 100%;
+  }
+
+  // Reset default fieldset styles if used
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 
-input[type="radio"],
-input[type="checkbox"] {
+.form-control {
+  width: 100%;
+  padding: 1.6rem 2rem;
+  font-family: $body-font-family;
+  font-size: 1.6rem;
+  color: $heading-color;
+  background-color: rgba($white, 0.7);
+  border: 1px solid $border-color;
+  border-radius: 1rem;
+  transition: $transition;
+  outline: none;
+  margin-bottom: 2px;
+
+  &::placeholder {
+    color: rgba($text-secondary, 0.7);
+  }
+
+  &:focus {
+    border-color: $accent-color;
+    background-color: $white;
+    box-shadow: 0 0 0 4px rgba($accent-color, 0.1);
+  }
 }
 
-input[type="submit"],
-input[type="button"] {
+textarea.form-control {
+  min-height: 15rem;
+  resize: vertical;
 }
 
-input[type="file"] {
+// Special styling for file upload
+input[type="file"].form-control {
+  padding: 1.2rem;
+  background-color: transparent;
+  border: 1px dashed $accent-color;
+  cursor: pointer;
+  color: $text-secondary;
+  
+  &::file-selector-button {
+    background-color: $accent-color;
+    color: $text-light;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 0.8rem;
+    margin-right: 1.5rem;
+    cursor: pointer;
+    font-family: $body-font-family;
+    font-weight: 500;
+    transition: $transition;
+
+    &:hover {
+      background-color: $accent-hover;
+    }
+  }
 }
 
-input[type="date"],
-input[type="time"] {
+// Ensure the CF7 loading spinner doesn't break the layout
+.wpcf7-spinner {
+  display: block;
+  margin: 1rem auto 0;
 }
