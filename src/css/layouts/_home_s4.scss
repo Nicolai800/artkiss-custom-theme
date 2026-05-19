@@ -1,0 +1,79 @@
+@use "../abstracts" as *;
+
+.home-s4 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  @include md {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  // ---- Section title (above the card) ----
+  &__title {
+    color: $heading-color;
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    @include md {
+      margin-bottom: 3rem;
+    }
+  }
+
+  // ---- Card wrapper ----
+  &__card {
+    background-color: $bg-secondary;
+    padding: 2.5rem 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: $shadow-soft;
+    border: 1px solid rgba($accent-hover, 0.4);
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include sm {
+      padding: 3rem 2rem;
+    }
+
+    @include md {
+      flex-direction: row;
+      align-items: center;
+      gap: 3.5rem;
+      padding: 4rem 3rem;
+    }
+  }
+
+  // ---- Image ----
+  &__img-wrap {
+    flex-shrink: 0;
+
+    @include md {
+      width: 45%;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+    // Subtle depth on the image
+    box-shadow: 0 8px 24px rgba($heading-color, 0.12);
+
+    @include md {
+      max-height: 480px;
+    }
+  }
+
+  // ---- Text block ----
+  &__desc {
+    color: $text-secondary;
+    flex: 1;
+
+    p + p {
+      margin-top: 1em;
+    }
+  }
+}
