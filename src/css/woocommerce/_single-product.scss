@@ -1,0 +1,657 @@
+@use "../abstracts" as *;
+@use "../base/button" as *;
+
+/* =========================================================
+   SINGLE PRODUCT PAGE STYLES
+   ========================================================= */
+
+.single-product {
+  padding-top: calc(#{$header-offset-mobile} + 4rem);
+
+  // Hide the redundant sidebar on single product pages
+  #sidebar {
+    display: none;
+  }
+
+  // Make content container span full width and behave like .l-container
+  #primary {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    max-width: 100%;
+
+    @include xs {
+      padding: 0 4rem;
+    }
+
+    @include md {
+      padding: 0 8rem;
+    }
+
+    @include lg {
+      padding: 0 12rem;
+    }
+
+    @include ul {
+      padding: 0 20rem;
+    }
+  }
+
+  // Breadcrumbs styling
+  .woocommerce-breadcrumb {
+    font-family: $body-font-family;
+    font-size: 1.3rem;
+    color: $text-secondary;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    display: block;
+
+    a {
+      color: $text-secondary;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+
+  // Notices
+  .woocommerce-notices-wrapper {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  // Main product layout (grid structure)
+  div.product {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 1rem;
+    position: relative;
+
+    @include md {
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    @include lg {
+      gap: 8rem;
+    }
+  }
+
+  // 1. Gallery Column
+  &.woocommerce div.product .images,
+  &.woocommerce-page div.product .images,
+  div.product .woocommerce-product-gallery,
+  div.product .images {
+    width: 100% !important;
+    float: none !important;
+    clear: none !important;
+    margin: 0 !important;
+    position: relative;
+
+    .woocommerce-product-gallery__wrapper {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .woocommerce-product-gallery__image {
+      margin-bottom: 0 !important;
+
+      img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+        border-radius: 1.5rem !important;
+        box-shadow: $shadow-soft !important;
+      }
+    }
+
+    // Thumbnails layout
+    ol.flex-control-thumbs,
+    .thumbnails {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 1.5rem !important;
+      margin: 1.5rem 0 0 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
+      float: none !important;
+      width: 100% !important;
+
+      li {
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+
+        img {
+          width: 100% !important;
+          height: auto !important;
+          aspect-ratio: 1 / 1 !important;
+          object-fit: cover !important;
+          border-radius: 1rem !important;
+          border: 2px solid transparent !important;
+          cursor: pointer !important;
+          transition: border-color 0.3s, opacity 0.3s !important;
+          opacity: 0.7 !important;
+
+          &.flex-active,
+          &:hover {
+            border-color: $accent-color !important;
+            opacity: 1 !important;
+          }
+        }
+      }
+    }
+  }
+
+  // 2. Summary Info Column (Right Side on Desktop)
+  &.woocommerce div.product .summary,
+  &.woocommerce-page div.product .summary,
+  div.product .summary {
+    width: 100% !important;
+    float: none !important;
+    clear: none !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+
+    .product_title {
+      font-family: $heading-font-family;
+      font-size: clamp(3rem, 4.5vw, 4.2rem);
+      line-height: 1.1;
+      color: $heading-color;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .price {
+      font-family: $body-font-family;
+      font-size: 2.4rem;
+      color: $accent-color;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      del {
+        font-size: 1.8rem;
+        color: rgba($text-secondary, 0.6);
+        font-weight: 400;
+      }
+
+      ins {
+        text-decoration: none;
+      }
+    }
+
+    .woocommerce-product-details__short-description {
+      font-family: $body-font-family;
+      font-size: 1.5rem;
+      line-height: 1.7;
+      color: $text-primary;
+      margin-bottom: 3rem;
+
+      p {
+        margin-bottom: 1rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // 3. Variations Form & Inputs
+  .variations_form {
+    margin-bottom: 3rem;
+
+    table.variations {
+      width: 100%;
+      margin-bottom: 2rem;
+      border-spacing: 0;
+      border-collapse: collapse;
+
+      tr {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+
+        @include sm {
+          flex-direction: row;
+          align-items: center;
+          gap: 2rem;
+        }
+      }
+
+      td,
+      th {
+        padding: 0;
+        border: none;
+        background: none;
+      }
+
+      th.label {
+        width: auto;
+        text-align: left;
+
+        @include sm {
+          width: 10rem;
+          flex-shrink: 0;
+        }
+
+        label {
+          font-family: $body-font-family;
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: $heading-color;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+      }
+
+      td.value {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+        flex-grow: 1;
+
+        select {
+          width: 100%;
+          max-width: 28rem;
+          padding: 1.2rem 1.8rem;
+          font-family: $body-font-family;
+          font-size: 1.5rem;
+          color: $heading-color;
+          background-color: rgba($white, 0.7);
+          border: 1px solid $border-color;
+          border-radius: 1rem;
+          outline: none;
+          cursor: pointer;
+          transition: $transition;
+          appearance: none; // Reset native arrow
+          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%233e3028' d='M6 7.4L.6 2 2 .6 6 4.6 10 .6l1.4 1.4L6 7.4z'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 1.5rem center;
+          padding-right: 4rem;
+
+          &:focus {
+            border-color: $accent-color;
+            background-color: $white;
+            box-shadow: 0 0 0 4px rgba($accent-color, 0.1);
+          }
+        }
+
+        .reset_variations {
+          font-family: $body-font-family;
+          font-size: 1.2rem;
+          color: $text-secondary;
+          text-decoration: underline;
+          transition: color 0.3s;
+
+          &:hover {
+            color: $error-color;
+          }
+        }
+      }
+    }
+
+    // Add to Cart block
+    .single_variation_wrap {
+      margin-top: 2rem;
+      border-top: 1px dashed $border-color;
+      padding-top: 2.5rem;
+    }
+
+    .woocommerce-variation-add-to-cart {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .quantity {
+      flex-shrink: 0;
+
+      .qty {
+        width: 7rem;
+        height: 5.2rem;
+        padding: 0;
+        text-align: center;
+        font-family: $body-font-family;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: $heading-color;
+        border: 1px solid $border-color;
+        border-radius: 1rem;
+        background-color: rgba($white, 0.7);
+        outline: none;
+        transition: $transition;
+
+        &:focus {
+          border-color: $accent-color;
+          background-color: $white;
+        }
+      }
+    }
+
+    .single_add_to_cart_button {
+      height: 5.2rem;
+      min-width: 20rem;
+      flex-grow: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+
+      @include sm {
+        flex-grow: 0;
+        min-width: 25rem;
+      }
+    }
+  }
+
+  // 4. Product Meta Information
+  .product_meta {
+    margin-top: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid $border-color;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    font-family: $body-font-family;
+    font-size: 1.3rem;
+    color: $text-secondary;
+
+    span {
+      font-weight: 500;
+    }
+
+    a {
+      color: $accent-color;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $accent-hover;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // 5. Tabs Block (Description, Info, Reviews)
+  .woocommerce-tabs {
+    grid-column: 1 / -1;
+    margin-top: 4rem;
+    border-top: 1px solid $border-color;
+    padding-top: 4rem;
+
+    ul.tabs {
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0 0 3rem 0;
+      list-style: none;
+      border-bottom: 1px solid $border-color;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      li {
+        margin: 0;
+        padding: 0;
+
+        a {
+          display: block;
+          padding: 1.2rem 2rem;
+          font-family: $heading-font-family;
+          font-size: 2rem;
+          font-weight: 600;
+          color: $text-secondary;
+          text-decoration: none;
+          border-bottom: 2px solid transparent;
+          white-space: nowrap;
+          transition: $transition;
+
+          &:hover {
+            color: $accent-color;
+          }
+        }
+
+        &.active {
+          a {
+            color: $heading-color;
+            border-bottom-color: $accent-color;
+          }
+        }
+      }
+    }
+
+    .woocommerce-Tabs-panel {
+      padding: 1rem 0;
+      animation: tabFadeIn 0.4s ease-in-out;
+
+      h2 {
+        display: none; // Hide duplicate tab headings
+      }
+
+      p {
+        font-family: $body-font-family;
+        font-size: 1.5rem;
+        line-height: 1.8;
+        color: $text-primary;
+        margin-bottom: 1.5rem;
+      }
+
+      ol,
+      ul {
+        font-family: $body-font-family;
+        font-size: 1.5rem;
+        line-height: 1.8;
+        color: $text-primary;
+        margin-bottom: 2rem;
+        padding-left: 2rem;
+
+        li {
+          margin-bottom: 0.75rem;
+        }
+      }
+    }
+
+    // Additional info table
+    table.shop_attributes {
+      width: 100%;
+      max-width: 60rem;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+
+      tr {
+        border-bottom: 1px solid $border-color;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      th,
+      td {
+        padding: 1.5rem 0;
+        text-align: left;
+        font-size: 1.5rem;
+      }
+
+      th {
+        font-family: $body-font-family;
+        font-weight: 600;
+        color: $heading-color;
+        width: 15rem;
+      }
+
+      td {
+        font-family: $body-font-family;
+        color: $text-primary;
+
+        p {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+    // Reviews block
+    #reviews {
+      .woocommerce-Reviews-title {
+        font-family: $heading-font-family;
+        font-size: 2.2rem;
+        color: $heading-color;
+        margin-bottom: 2rem;
+      }
+
+      .woocommerce-noreviews {
+        font-family: $body-font-family;
+        font-size: 1.5rem;
+        color: $text-secondary;
+        font-style: italic;
+      }
+
+      #respond {
+        margin-top: 3rem;
+        padding: 2.5rem;
+        background-color: rgba($white, 0.4);
+        border: 1px solid $border-color;
+        border-radius: 1.5rem;
+
+        .comment-reply-title {
+          font-family: $heading-font-family;
+          font-size: 2.2rem;
+          color: $heading-color;
+          margin-bottom: 2rem;
+          display: block;
+        }
+
+        .comment-form-rating {
+          margin-bottom: 2rem;
+
+          label {
+            font-family: $body-font-family;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: $heading-color;
+            display: block;
+            margin-bottom: 0.5rem;
+          }
+
+          select {
+            padding: 1rem 1.5rem;
+            border-radius: 0.8rem;
+            border: 1px solid $border-color;
+            background-color: $white;
+            outline: none;
+            cursor: pointer;
+          }
+        }
+
+        .comment-form-comment {
+          margin-bottom: 2rem;
+
+          label {
+            font-family: $body-font-family;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: $heading-color;
+            display: block;
+            margin-bottom: 0.5rem;
+          }
+
+          textarea {
+            width: 100%;
+            min-height: 12rem;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid $border-color;
+            background-color: rgba($white, 0.7);
+            font-family: $body-font-family;
+            font-size: 1.5rem;
+            outline: none;
+            transition: $transition;
+
+            &:focus {
+              border-color: $accent-color;
+              background-color: $white;
+              box-shadow: 0 0 0 4px rgba($accent-color, 0.1);
+            }
+          }
+        }
+
+        .form-submit {
+          margin: 0;
+
+          input[type="submit"] {
+            @extend .button1;
+            min-width: auto;
+            padding: 1.2rem 3rem;
+            font-size: 1.4rem;
+            line-height: 1.5;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  // 6. Related Products Section
+  .related.products {
+    grid-column: 1 / -1;
+    margin-top: 5rem;
+    border-top: 1px solid $border-color;
+    padding-top: 4rem;
+
+    h2 {
+      font-family: $heading-font-family;
+      font-size: clamp(2.8rem, 4vw, 4rem);
+      color: $heading-color;
+      margin-bottom: 3.5rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    ul.products {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 2rem !important;
+
+      @include md {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 3rem !important;
+      }
+
+      li.product {
+        width: 100% !important;
+        float: none !important;
+        margin: 0 !important;
+      }
+    }
+  }
+}
+
+// Fade-in animation for tabs
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -11,6 +11,9 @@ ul.products li.product {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   position: relative;
+  width: 100% !important;
+  float: none !important;
+  margin: 0 !important;
 
   @include md {
     padding: 1.5rem;
@@ -101,8 +104,16 @@ ul.products {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 2rem !important;
+
+  @include md {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 3rem !important;
+  }
   
   &::before, &::after {
-    display: none;
+    display: none !important;
   }
 }

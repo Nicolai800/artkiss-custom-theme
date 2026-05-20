@@ -35,6 +35,7 @@
 @use "layouts/home_s2";
 @use "layouts/home_s3";
 @use "layouts/home_s4";
+@use "layouts/home_s5";
 @use "layouts/contact";
 
 // 6. Components
@@ -42,3 +43,4 @@
 
 // 7. WooCommerce
 @use "woocommerce/product-card";
+@use "woocommerce/single-product";
