@@ -144,6 +144,8 @@
 
   &__actions {
     margin-top: auto;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
 
     @include md {
       margin-top: 1rem;

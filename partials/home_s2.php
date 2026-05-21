@@ -37,32 +37,34 @@ if (!$has_content) {
                 $desc = $cat['desc'] ?? ''; 
                 $link_url = $cat['url'] ?? '';
             ?>
-                <a href="<?php echo esc_url($link_url); ?>" class="category-card">
-                    
-                    <?php if ($image) : ?>
-                        <div class="category-card__bg">
-                            <?php 
-                            if (is_array($image)) {
-                                echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
-                            } elseif (is_numeric($image)) {
-                                echo wp_get_attachment_image($image, 'full');
-                            }
-                            ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <div class="category-card__content">
-                        <?php if ($title) : ?>
-                            <h2 class="category-card__title heading3"><?php echo wp_kses_post($title); ?></h2>
-                        <?php endif; ?>
-
-                        <?php if ($desc) : ?>
-                            <div class="category-card__desc regular-desc">
-                                <?php echo wp_kses_post($desc); ?>
+                <div class="home_s2__card-wrap" data-aos="fade-up" data-aos-delay="<?php echo $i * 100; ?>" data-aos-duration="1000">
+                    <a href="<?php echo esc_url($link_url); ?>" class="category-card">
+                        
+                        <?php if ($image) : ?>
+                            <div class="category-card__bg">
+                                <?php 
+                                if (is_array($image)) {
+                                    echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
+                                } elseif (is_numeric($image)) {
+                                    echo wp_get_attachment_image($image, 'full');
+                                }
+                                ?>
                             </div>
                         <?php endif; ?>
-                    </div>
-                </a>
+
+                        <div class="category-card__content">
+                            <?php if ($title) : ?>
+                                <h2 class="category-card__title heading3"><?php echo wp_kses_post($title); ?></h2>
+                            <?php endif; ?>
+
+                            <?php if ($desc) : ?>
+                                <div class="category-card__desc regular-desc">
+                                    <?php echo wp_kses_post($desc); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </a>
+                </div>
             <?php endfor; ?>
         </div>
     </div>

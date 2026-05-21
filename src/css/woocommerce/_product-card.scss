@@ -1,11 +1,12 @@
 @use "../abstracts" as *;
 
+body.woocommerce:not(.woocommerce-uses-block-theme) ul.products li.product,
 ul.products li.product {
   background-color: rgba($white, 0.7);
   border-radius: 1.5rem;
   box-shadow: $shadow-soft;
   border: 1px solid rgba($accent-hover, 0.4);
-  padding: 1.2rem;
+  //padding: 1.2rem;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -61,19 +62,19 @@ ul.products li.product {
     }
   }
 
-  
+
   .price {
     font-family: $body-font-family;
     font-size: 1.6rem;
     color: $accent-color;
     font-weight: 700;
     margin-bottom: 2rem;
-    
+
     @include md {
       font-size: 1.8rem;
     }
-    
-    
+
+
     del {
       color: rgba($text-secondary, 0.6);
       font-weight: 400;
@@ -88,7 +89,7 @@ ul.products li.product {
   }
 
   .button {
-    margin-top: auto;
+    margin: auto 1rem 1rem 1rem;
     min-width: 0;
     padding: 1rem 0.5rem;
     font-size: 1.3rem;
@@ -100,6 +101,7 @@ ul.products li.product {
   }
 }
 
+body.woocommerce:not(.woocommerce-uses-block-theme) ul.products,
 ul.products {
   margin: 0;
   padding: 0;
@@ -112,8 +114,9 @@ ul.products {
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 3rem !important;
   }
-  
-  &::before, &::after {
+
+  &::before,
+  &::after {
     display: none !important;
   }
 }

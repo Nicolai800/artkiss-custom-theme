@@ -15,10 +15,10 @@ $img         = $section['img']         ?? false;
     <div class="home-s4__container l-container">
 
         <?php if ($title) : ?>
-            <h2 class="home-s4__title heading2"><?php echo esc_html($title); ?></h2>
+            <h2 class="home-s4__title heading2" data-aos="fade-up" data-aos-duration="1000"><?php echo esc_html($title); ?></h2>
         <?php endif; ?>
 
-        <div class="home-s4__card">
+        <div class="home-s4__card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
 
             <?php if ($img) : ?>
                 <div class="home-s4__img-wrap">

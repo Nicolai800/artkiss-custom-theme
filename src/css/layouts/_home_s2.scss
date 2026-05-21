@@ -13,11 +13,16 @@
       gap: 4rem;
     }
   }
+
+  &__card-wrap {
+    display: flex;
+  }
 }
 
 .category-card {
   position: relative;
   display: block;
+  width: 100%;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 10px 10px 25px rgba($accent-color, 0.25); // Voluminous shadow right and bottom
@@ -57,7 +62,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    
+
     @include md {
       padding: 5rem;
       width: 60%; // Take up 60% of the card width for text

@@ -13,7 +13,7 @@ $products = $section['products'] ?? false;
 <section class="home-s3">
     <div class="home-s3__container l-container">
         
-        <div class="home-s3__header">
+        <div class="home-s3__header" data-aos="fade-up" data-aos-duration="1000">
             <?php if ($title) : ?>
                 <h2 class="home-s3__title heading2"><?php echo esc_html($title); ?></h2>
             <?php endif; ?>
@@ -39,13 +39,15 @@ $products = $section['products'] ?? false;
             $loop = new WP_Query($args);
 
             if ($loop->have_posts()) : ?>
-                <ul class="home-s3__grid products">
-                    <?php 
-                    while ($loop->have_posts()) : $loop->the_post();
-                        wc_get_template_part('content', 'product');
-                    endwhile; 
-                    ?>
-                </ul>
+                <div class="home-s3__grid-wrap" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                    <ul class="home-s3__grid products">
+                        <?php 
+                        while ($loop->have_posts()) : $loop->the_post();
+                            wc_get_template_part('content', 'product');
+                        endwhile; 
+                        ?>
+                    </ul>
+                </div>
                 <?php 
                 wp_reset_postdata();
             endif;
