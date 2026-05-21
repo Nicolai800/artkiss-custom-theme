@@ -2,10 +2,10 @@
   "object" == typeof exports && "object" == typeof module
     ? (module.exports = t())
     : "function" == typeof define && define.amd
-    ? define([], t)
-    : "object" == typeof exports
-    ? (exports.AOS = t())
-    : (e.AOS = t());
+      ? define([], t)
+      : "object" == typeof exports
+        ? (exports.AOS = t())
+        : (e.AOS = t());
 })(this, function () {
   return (function (e) {
     function t(o) {
@@ -22,15 +22,15 @@
         return e && e.__esModule ? e : { default: e };
       }
       var i =
-          Object.assign ||
-          function (e) {
-            for (var t = 1; t < arguments.length; t++) {
-              var n = arguments[t];
-              for (var o in n)
-                Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
-            }
-            return e;
-          },
+        Object.assign ||
+        function (e) {
+          for (var t = 1; t < arguments.length; t++) {
+            var n = arguments[t];
+            for (var o in n)
+              Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
+          }
+          return e;
+        },
         r = n(1),
         a = (o(r), n(6)),
         u = o(a),
@@ -94,8 +94,8 @@
             z(j.disable) || x
               ? S()
               : (document
-                  .querySelector("body")
-                  .setAttribute("data-aos-easing", j.easing),
+                .querySelector("body")
+                .setAttribute("data-aos-easing", j.easing),
                 document
                   .querySelector("body")
                   .setAttribute("data-aos-duration", j.duration),
@@ -103,13 +103,13 @@
                   .querySelector("body")
                   .setAttribute("data-aos-delay", j.delay),
                 "DOMContentLoaded" === j.startEvent &&
-                ["complete", "interactive"].indexOf(document.readyState) > -1
+                  ["complete", "interactive"].indexOf(document.readyState) > -1
                   ? O(!0)
                   : "load" === j.startEvent
-                  ? window.addEventListener(j.startEvent, function () {
+                    ? window.addEventListener(j.startEvent, function () {
                       O(!0);
                     })
-                  : document.addEventListener(j.startEvent, function () {
+                    : document.addEventListener(j.startEvent, function () {
                       O(!0);
                     }),
                 window.addEventListener(
@@ -132,7 +132,7 @@
         };
       e.exports = { init: A, refresh: O, refreshHard: _ };
     },
-    function (e, t) {},
+    function (e, t) { },
     ,
     ,
     ,
@@ -196,7 +196,7 @@
           return (
             (t = u(t) || 0),
             i(n) &&
-              ((_ = !!n.leading),
+            ((_ = !!n.leading),
               (S = "maxWait" in n),
               (y = S ? x(u(n.maxWait) || 0, t) : y),
               (z = "trailing" in n ? !!n.trailing : z)),
@@ -211,7 +211,7 @@
           if ("function" != typeof e) throw new TypeError(f);
           return (
             i(o) &&
-              ((r = "leading" in o ? !!o.leading : r),
+            ((r = "leading" in o ? !!o.leading : r),
               (a = "trailing" in o ? !!o.trailing : a)),
             n(e, t, { leading: r, maxWait: t, trailing: a })
           );
@@ -244,18 +244,18 @@
           return n || b.test(e) ? v(e.slice(2), n ? 2 : 8) : p.test(e) ? s : +e;
         }
         var c =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                  return typeof e;
-                }
-              : function (e) {
-                  return e &&
-                    "function" == typeof Symbol &&
-                    e.constructor === Symbol &&
-                    e !== Symbol.prototype
-                    ? "symbol"
-                    : typeof e;
-                },
+          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+            ? function (e) {
+              return typeof e;
+            }
+            : function (e) {
+              return e &&
+                "function" == typeof Symbol &&
+                e.constructor === Symbol &&
+                e !== Symbol.prototype
+                ? "symbol"
+                : typeof e;
+            },
           f = "Expected a function",
           s = NaN,
           d = "[object Symbol]",
@@ -349,7 +349,7 @@
           return (
             (t = a(t) || 0),
             o(n) &&
-              ((_ = !!n.leading),
+            ((_ = !!n.leading),
               (S = "maxWait" in n),
               (y = S ? k(a(n.maxWait) || 0, t) : y),
               (z = "trailing" in n ? !!n.trailing : z)),
@@ -386,18 +386,18 @@
           return n || m.test(e) ? b(e.slice(2), n ? 2 : 8) : l.test(e) ? f : +e;
         }
         var u =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                  return typeof e;
-                }
-              : function (e) {
-                  return e &&
-                    "function" == typeof Symbol &&
-                    e.constructor === Symbol &&
-                    e !== Symbol.prototype
-                    ? "symbol"
-                    : typeof e;
-                },
+          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+            ? function (e) {
+              return typeof e;
+            }
+            : function (e) {
+              return e &&
+                "function" == typeof Symbol &&
+                e.constructor === Symbol &&
+                e !== Symbol.prototype
+                ? "symbol"
+                : typeof e;
+            },
           c = "Expected a function",
           f = NaN,
           s = "[object Symbol]",
@@ -460,7 +460,7 @@
           window.MutationObserver ||
           window.WebKitMutationObserver ||
           window.MozMutationObserver,
-        a = function () {};
+        a = function () { };
       t.default = n;
     },
     function (e, t) {
@@ -474,19 +474,19 @@
       }
       Object.defineProperty(t, "__esModule", { value: !0 });
       var i = (function () {
-          function e(e, t) {
-            for (var n = 0; n < t.length; n++) {
-              var o = t[n];
-              (o.enumerable = o.enumerable || !1),
-                (o.configurable = !0),
-                "value" in o && (o.writable = !0),
-                Object.defineProperty(e, o.key, o);
-            }
+        function e(e, t) {
+          for (var n = 0; n < t.length; n++) {
+            var o = t[n];
+            (o.enumerable = o.enumerable || !1),
+              (o.configurable = !0),
+              "value" in o && (o.writable = !0),
+              Object.defineProperty(e, o.key, o);
           }
-          return function (t, n, o) {
-            return n && e(t.prototype, n), o && e(t, o), t;
-          };
-        })(),
+        }
+        return function (t, n, o) {
+          return n && e(t.prototype, n), o && e(t, o), t;
+        };
+      })(),
         r =
           /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i,
         a =
@@ -531,13 +531,13 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var n = function (e, t, n) {
-          var o = e.node.getAttribute("data-aos-once");
-          t > e.position
-            ? e.node.classList.add("aos-animate")
-            : "undefined" != typeof o &&
-              ("false" === o || (!n && "true" !== o)) &&
-              e.node.classList.remove("aos-animate");
-        },
+        var o = e.node.getAttribute("data-aos-once");
+        t > e.position
+          ? e.node.classList.add("aos-animate")
+          : "undefined" != typeof o &&
+          ("false" === o || (!n && "true" !== o)) &&
+          e.node.classList.remove("aos-animate");
+      },
         o = function (e, t) {
           var o = window.pageYOffset,
             i = window.innerHeight;
@@ -584,10 +584,10 @@
               anchorPlacement: e.getAttribute("data-aos-anchor-placement"),
             };
           switch (
-            (a.offset && !isNaN(a.offset) && (o = parseInt(a.offset)),
+          (a.offset && !isNaN(a.offset) && (o = parseInt(a.offset)),
             a.anchor &&
-              document.querySelectorAll(a.anchor) &&
-              (e = document.querySelectorAll(a.anchor)[0]),
+            document.querySelectorAll(a.anchor) &&
+            (e = document.querySelectorAll(a.anchor)[0]),
             (n = (0, r.default)(e).top),
             a.anchorPlacement)
           ) {

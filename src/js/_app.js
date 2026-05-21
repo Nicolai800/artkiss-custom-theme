@@ -16,6 +16,11 @@ class App {
         once: true,
         offset: 50,
       });
+
+      // Refresh AOS on window load to ensure accurate element coordinates
+      window.addEventListener('load', () => {
+        AOS.refresh();
+      });
     }
   }
 

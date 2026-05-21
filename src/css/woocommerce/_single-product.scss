@@ -8,6 +8,10 @@
 .single-product {
   padding-top: calc(#{$header-offset-mobile} + 4rem);
 
+  @include md {
+    padding-top: calc(#{$header-offset-desktop} + 4rem);
+  }
+
   // Hide the redundant sidebar on single product pages
   #sidebar {
     display: none;
@@ -61,6 +65,107 @@
   .woocommerce-notices-wrapper {
     width: 100%;
     margin-bottom: 2rem;
+  }
+
+  // Premium styles for WooCommerce notice alerts (success, info, error)
+  .woocommerce-message,
+  .woocommerce-info,
+  .woocommerce-error {
+    padding: 1.8rem 2.5rem 1.8rem 5.5rem;
+    border-radius: 1.2rem;
+    margin-bottom: 2.5rem;
+    font-family: $body-font-family;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-shadow: $shadow-soft;
+    border: 1px solid transparent;
+    width: 100%;
+    position: relative;
+
+    &::before {
+      font-family: WooCommerce !important;
+      position: absolute !important;
+      left: 2rem !important;
+      top: 30% !important;
+      font-size: 1.7rem !important;
+      line-height: 1 !important;
+      display: inline-block !important;
+      float: none !important;
+      margin: 0 !important;
+    }
+
+    .button {
+      order: 2;
+      padding: 0.8rem 2rem;
+      font-size: 1.3rem;
+      border-radius: 0.8rem;
+      background: $accent-color;
+      color: $text-light;
+      text-decoration: none;
+      font-weight: 600;
+      transition: $transition;
+      min-width: auto;
+      height: auto;
+      line-height: 1.5;
+
+      &:hover {
+        background: $accent-hover;
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .woocommerce-message {
+    background-color: rgba($success-color, 0.08);
+    border-color: rgba($success-color, 0.25);
+    color: $success-color;
+
+    &::before {
+      content: "\e015" !important; // checkmark icon
+      color: $success-color !important;
+    }
+  }
+
+  .woocommerce-info {
+    background-color: rgba($accent-color, 0.08);
+    border-color: rgba($accent-color, 0.25);
+    color: $text-primary;
+
+    &::before {
+      content: "\e012" !important; // info "i" icon
+      color: $accent-color !important;
+    }
+  }
+
+  .woocommerce-error {
+    list-style: none !important;
+    background-color: rgba($error-color, 0.08);
+    border-color: rgba($error-color, 0.25);
+    color: $error-color;
+    padding-left: 5.5rem !important;
+    margin-left: 0 !important;
+
+    &::before {
+      content: "\e016" !important; // cross icon
+      color: $error-color !important;
+      top: 2.2rem !important;
+      transform: none !important;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      &::before {
+        display: none !important;
+      }
+    }
   }
 
   // Main product layout (grid structure)
@@ -168,6 +273,118 @@
       color: $heading-color;
       margin-bottom: 1.5rem;
       font-weight: 600;
+    }
+
+    // Product Rating
+    .woocommerce-product-rating {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      font-family: $body-font-family;
+      font-size: 1.4rem;
+      color: $text-secondary;
+      line-height: 1;
+
+      .star-rating {
+        margin: 0;
+      }
+
+      .woocommerce-review-link {
+        color: $text-secondary;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $accent-color;
+        }
+      }
+    }
+
+    // Star rating
+    .star-rating {
+      float: none !important;
+      display: inline-block;
+      overflow: hidden;
+      position: relative;
+      height: 1.6rem;
+      line-height: 1;
+      font-size: 1.6rem;
+      width: 8.5rem;
+      font-family: star;
+      color: $accent-color;
+      letter-spacing: 0.1em;
+
+      &::before {
+        content: "\e021\e021\e021\e021\e021" !important;
+        color: rgba($accent-color, 0.25) !important;
+        float: left;
+        left: 0;
+        position: absolute;
+      }
+
+      span {
+        overflow: hidden;
+        float: left;
+        top: 0;
+        left: 0;
+        position: absolute;
+        padding-top: 1.5em;
+
+        &::before {
+          content: "\e011\e011\e011\e011\e011" !important;
+          color: $accent-color !important;
+          top: 0;
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+
+    // Stock availability messages
+    .stock {
+      font-family: $body-font-family;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 1.5rem 0 2rem 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+      }
+
+      &.in-stock {
+        color: $success-color;
+
+        &::before {
+          background-color: $success-color;
+          box-shadow: 0 0 8px rgba($success-color, 0.6);
+        }
+      }
+
+      &.out-of-stock {
+        color: $error-color;
+
+        &::before {
+          background-color: $error-color;
+          box-shadow: 0 0 8px rgba($error-color, 0.6);
+        }
+      }
+
+      &.available-on-backorder {
+        color: $accent-color;
+
+        &::before {
+          background-color: $accent-color;
+          box-shadow: 0 0 8px rgba($accent-color, 0.6);
+        }
+      }
     }
 
     .price {
@@ -309,6 +526,42 @@
       margin-top: 2rem;
       border-top: 1px dashed $border-color;
       padding-top: 2.5rem;
+
+      .woocommerce-variation-price {
+        margin-bottom: 2rem;
+
+        .price {
+          font-family: $body-font-family;
+          font-size: 2.4rem;
+          color: $accent-color;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          del {
+            font-size: 1.8rem;
+            color: rgba($text-secondary, 0.6);
+            font-weight: 400;
+          }
+
+          ins {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .woocommerce-variation-description {
+        font-family: $body-font-family;
+        font-size: 1.4rem;
+        line-height: 1.6;
+        color: $text-primary;
+        margin-bottom: 2rem;
+
+        p {
+          margin: 0;
+        }
+      }
     }
 
     .woocommerce-variation-add-to-cart {
@@ -513,7 +766,7 @@
         font-family: $heading-font-family;
         font-size: 2.2rem;
         color: $heading-color;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
       }
 
       .woocommerce-noreviews {
@@ -523,6 +776,104 @@
         font-style: italic;
       }
 
+      // Reviews list styling
+      #comments {
+        margin-bottom: 4rem;
+
+        ol.commentlist {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+
+          li.review {
+            padding: 2.5rem;
+            background-color: rgba($white, 0.4);
+            border: 1px solid $border-color;
+            border-radius: 1.5rem;
+            box-shadow: $shadow-soft;
+            transition: transform 0.3s, box-shadow 0.3s;
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 12px 30px rgba(120, 85, 60, 0.1);
+            }
+
+            .comment_container {
+              display: flex;
+              gap: 2rem;
+              align-items: flex-start;
+
+              @media (max-width: 576px) {
+                flex-direction: column;
+                gap: 1.5rem;
+              }
+            }
+
+            img.avatar {
+              width: 6rem;
+              height: 6rem;
+              border-radius: 50%;
+              border: 2px solid $border-color;
+              background-color: $white;
+              object-fit: cover;
+              flex-shrink: 0;
+            }
+
+            .comment-text {
+              flex-grow: 1;
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              width: 100%;
+
+              .star-rating {
+                margin-bottom: 0.5rem;
+              }
+
+              .meta {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 0.8rem;
+                font-family: $body-font-family;
+                font-size: 1.3rem;
+                color: $text-secondary;
+                margin: 0;
+
+                strong {
+                  color: $heading-color;
+                  font-weight: 600;
+                  font-size: 1.5rem;
+                }
+
+                .woocommerce-review__dash {
+                  color: rgba($text-secondary, 0.5);
+                }
+
+                time {
+                  color: rgba($text-secondary, 0.8);
+                }
+              }
+
+              .description {
+                font-family: $body-font-family;
+                font-size: 1.5rem;
+                line-height: 1.7;
+                color: $text-primary;
+
+                p {
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // Review submission form
       #respond {
         margin-top: 3rem;
         padding: 2.5rem;
@@ -534,29 +885,73 @@
           font-family: $heading-font-family;
           font-size: 2.2rem;
           color: $heading-color;
-          margin-bottom: 2rem;
+          margin-bottom: 2.5rem;
           display: block;
         }
 
         .comment-form-rating {
-          margin-bottom: 2rem;
+          margin-bottom: 2.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
 
           label {
             font-family: $body-font-family;
             font-size: 1.4rem;
             font-weight: 600;
             color: $heading-color;
-            display: block;
-            margin-bottom: 0.5rem;
           }
 
-          select {
-            padding: 1rem 1.5rem;
-            border-radius: 0.8rem;
-            border: 1px solid $border-color;
-            background-color: $white;
-            outline: none;
-            cursor: pointer;
+          // Style rating input stars
+          p.stars {
+            display: inline-block;
+            margin: 0;
+            line-height: 1;
+            height: 2rem;
+
+            a {
+              position: relative;
+              height: 2rem;
+              width: 2rem;
+              text-indent: -999em;
+              display: inline-block;
+              text-decoration: none;
+              box-shadow: none;
+              margin-right: 0.5rem;
+
+              &::before {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 2rem;
+                height: 2rem;
+                line-height: 1;
+                font-family: star;
+                content: "\e021"; // Empty star in WooCommerce font
+                text-indent: 0;
+                color: rgba($accent-color, 0.3);
+                font-size: 2rem;
+                transition: color 0.2s;
+              }
+
+              &:hover::before,
+              &.active::before {
+                content: "\e011"; // Filled star
+                color: $accent-color;
+              }
+            }
+
+            // Hover effects for rating stars sequence
+            &:hover a::before {
+              content: "\e011";
+              color: $accent-color;
+            }
+
+            a:hover~a::before {
+              content: "\e021";
+              color: rgba($accent-color, 0.3);
+            }
           }
         }
 

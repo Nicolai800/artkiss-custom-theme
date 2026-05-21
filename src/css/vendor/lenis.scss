@@ -24,3 +24,9 @@ html.lenis body {
   transition-duration: 1ms;
   transition-behavior: allow-discrete;
 }
+
+/* Prevent native browser scroll-behavior conflicts when using Lenis */
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+

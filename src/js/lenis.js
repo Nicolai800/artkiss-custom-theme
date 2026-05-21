@@ -8,6 +8,14 @@ const lenis = new Lenis({
 
 window.lenis = lenis;
 
+// Refresh AOS animations on smooth scroll events
+lenis.on('scroll', () => {
+  if (typeof AOS !== 'undefined') {
+    AOS.refresh();
+  }
+});
+
+
 function raf(time) {
   lenis.raf(time);
   requestAnimationFrame(raf);

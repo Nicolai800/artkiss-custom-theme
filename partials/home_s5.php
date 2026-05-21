@@ -12,7 +12,7 @@ $title = $section['title'] ?? '';
     <div class="home-s5__container l-container">
 
         <?php if ($title) : ?>
-            <h2 class="home-s5__title heading2"><?php echo esc_html($title); ?></h2>
+            <h2 class="home-s5__title heading2" data-aos="fade-up" data-aos-duration="1000"><?php echo esc_html($title); ?></h2>
         <?php endif; ?>
 
         <div class="home-s5__grid">
@@ -22,8 +22,9 @@ $title = $section['title'] ?? '';
                 $card_text  = $section["card_{$i}_text"] ?? '';
                 
                 if (!$card_title && !$card_text) continue;
+                $aos_effect = ($i % 2 !== 0) ? 'fade-right' : 'fade-left';
             ?>
-                <div class="home-s5__card">
+                <div class="home-s5__card" data-aos="<?php echo $aos_effect; ?>" data-aos-delay="<?php echo $i * 100; ?>" data-aos-duration="1000">
                     <?php if ($icon) : ?>
                         <div class="home-s5__card-icon-wrap">
                             <img 
