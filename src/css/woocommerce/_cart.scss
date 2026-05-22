@@ -1,0 +1,20 @@
+@use "../abstracts" as *;
+@use "../base/button" as *;
+
+/* =========================================================
+   WOOCOMMERCE CART & CHECKOUT PAGE STYLES
+   ========================================================= */
+
+.woocommerce-cart,
+.woocommerce-checkout {
+  padding-top: calc(#{$header-offset-mobile} + 2rem);
+
+  @include md {
+    padding-top: calc(#{$header-offset-desktop} + 2rem);
+  }
+
+  @include ul {
+    padding-top: calc(#{$header-offset-desktop} + 3rem);
+    //min-height: 55vh;
+  }
+}

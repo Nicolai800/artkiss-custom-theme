@@ -1,0 +1,214 @@
+@use "../abstracts" as *;
+
+/* =========================================================
+   WOOCOMMERCE ARCHIVE / CATEGORY PAGE STYLES
+   ========================================================= */
+
+// Apply main wrapper and responsive top spacing to catalog pages to clear fixed header
+.archive.woocommerce,
+.archive.woocommerce-page,
+.tax-product_cat.woocommerce,
+.tax-product_cat.woocommerce-page,
+.woocommerce-shop {
+  padding-top: calc(#{$header-offset-mobile} + 2rem);
+
+  @include md {
+    padding-top: calc(#{$header-offset-desktop} + 3rem);
+  }
+
+  // Hide default sidebar on category/shop pages for clean full-width grid layout
+  #sidebar {
+    display: none;
+  }
+
+  // Expand the content area to full-width and behave like .l-container
+  #primary {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 100%;
+
+    @include xs {
+      padding: 2rem 4rem;
+    }
+
+    @include md {
+      padding: 4rem 8rem;
+    }
+
+    @include lg {
+      padding: 6rem 12rem;
+    }
+
+    @include ul {
+      padding: 6rem 20rem;
+    }
+  }
+
+
+
+  // Notices area
+  .woocommerce-notices-wrapper {
+    width: 100%;
+    margin-bottom: 2rem;
+    clear: both;
+  }
+
+  // Category Header & Description
+  .woocommerce-products-header {
+    margin-bottom: 4rem;
+    text-align: center;
+    clear: both;
+
+    // Default title styling (shown only if there is no custom description title)
+    &__title.page-title {
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    // If description template exists, hide standard title to prevent duplication
+    &:has(.term-description) {
+      .page-title {
+        display: none;
+      }
+    }
+  }
+
+  // Result Counter (e.g. "Showing 1-12 of 29 results")
+  .woocommerce-result-count {
+    font-family: $body-font-family;
+    font-size: 1.4rem;
+    color: $text-secondary;
+    margin: 0 0 3rem 0;
+    float: left;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: $breakpoint-xs) {
+      float: none;
+      display: block;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      height: auto;
+    }
+  }
+
+  // Ordering dropdown form
+  .woocommerce-ordering {
+    margin: 0 0 3rem 0;
+    float: right;
+
+    @media screen and (max-width: $breakpoint-xs) {
+      float: none;
+      display: block;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    select {
+      padding: 1.2rem 4rem 1.2rem 1.8rem;
+      font-family: $body-font-family;
+      font-size: 1.4rem;
+      color: $heading-color;
+      background-color: rgba($white, 0.75);
+      border: 1px solid $border-color;
+      border-radius: 1rem;
+      outline: none;
+      cursor: pointer;
+      transition: $transition;
+      appearance: none;
+
+      // Clean custom arrow icon
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235f5147' d='M6 7.4L.6 2 2 .6 6 4.6 10 .6l1.4 1.4L6 7.4z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.5rem center;
+
+      @media screen and (max-width: $breakpoint-xs) {
+        width: 100%;
+        max-width: 32rem;
+        margin: 0 auto;
+      }
+
+      &:focus {
+        border-color: $accent-color;
+        background-color: $white;
+        box-shadow: 0 0 0 4px rgba($accent-color, 0.1);
+      }
+    }
+  }
+
+  // Products Grid clear floats
+  ul.products {
+    clear: both;
+    margin-top: 2rem;
+  }
+
+  // Premium Pagination Styling
+  .woocommerce-pagination {
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    clear: both;
+
+    ul.page-numbers {
+      display: flex;
+      gap: 1.2rem;
+      padding: 0 !important;
+      margin: 0;
+      list-style: none;
+      align-items: center;
+      border: none !important;
+
+      li {
+        margin: 0;
+        padding: 0;
+        border: none !important;
+        float: none !important;
+
+        span.page-numbers,
+        a.page-numbers {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 4.6rem;
+          height: 4.6rem;
+          border-radius: 50%;
+          font-family: $body-font-family;
+          font-size: 1.5rem;
+          font-weight: 600;
+          text-decoration: none;
+          color: $text-primary;
+          background-color: rgba($white, 0.75);
+          border: 1px solid $border-color;
+          transition: $transition;
+          box-shadow: 0 2px 5px rgba($black, 0.02);
+
+          &.current {
+            background-color: $accent-color;
+            border-color: $accent-color;
+            color: $text-light;
+            cursor: default;
+            box-shadow: 0 5px 15px rgba($accent-color, 0.25);
+          }
+
+          &:not(.current):hover {
+            background-color: $accent-color;
+            border-color: $accent-color;
+            color: $text-light;
+            box-shadow: 0 5px 12px rgba($accent-color, 0.2);
+          }
+        }
+
+        // Adjust fonts for next/previous arrows
+        a.next,
+        a.prev {
+          font-size: 1.8rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

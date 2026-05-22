@@ -1,0 +1,24 @@
+@use "../abstracts" as *;
+
+/* =========================================================
+   BREADCRUMBS COMPONENT
+   ========================================================= */
+
+.woocommerce-breadcrumb {
+  font-family: $body-font-family;
+  font-size: 1.3rem;
+  color: $text-secondary;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  display: block;
+
+  a {
+    color: $text-secondary;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}

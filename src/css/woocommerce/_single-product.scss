@@ -41,25 +41,7 @@
     }
   }
 
-  // Breadcrumbs styling
-  .woocommerce-breadcrumb {
-    font-family: $body-font-family;
-    font-size: 1.3rem;
-    color: $text-secondary;
-    margin-bottom: 3rem;
-    margin-top: 2rem;
-    display: block;
 
-    a {
-      color: $text-secondary;
-      text-decoration: none;
-      transition: color 0.3s;
-
-      &:hover {
-        color: $accent-color;
-      }
-    }
-  }
 
   // Notices
   .woocommerce-notices-wrapper {

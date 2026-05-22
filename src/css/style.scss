@@ -40,7 +40,11 @@
 
 // 6. Components
 @use "components/menu-mobile";
+@use "components/breadcrumbs";
 
 // 7. WooCommerce
 @use "woocommerce/product-card";
+@use "woocommerce/archive";
 @use "woocommerce/single-product";
+@use "woocommerce/cart";
+
