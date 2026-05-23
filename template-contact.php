@@ -26,7 +26,7 @@ $form_shortcode = get_field('contact_form_shortcode');
             <div class="contact-page__grid">
                 
                 
-                <div class="contact-page__info">
+                <div class="contact-page__info" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                     <?php if ($company_name) : ?>
                         <div class="contact-page__item">
                             <span class="contact-page__label">Nazwa:</span>
@@ -71,7 +71,7 @@ $form_shortcode = get_field('contact_form_shortcode');
                 </div>
 
                 
-                <div class="contact-page__form-wrapper">
+                <div class="contact-page__form-wrapper" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                     <?php if ($form_title) : ?>
                         <h2 class="contact-page__form-title heading3"><?php echo esc_html($form_title); ?></h2>
                     <?php endif; ?>
