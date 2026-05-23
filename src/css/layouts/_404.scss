@@ -1,0 +1,107 @@
+@use "../abstracts" as *;
+
+/* =========================================================
+   404 ERROR PAGE
+   ========================================================= */
+
+.error-404 {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: calc(#{$header-offset-mobile} + 4rem) 2rem 6rem;
+  text-align: center;
+  z-index: 1;
+
+  @include md {
+    padding: calc(#{$header-offset-desktop} + 6rem) 4rem 8rem;
+  }
+
+  /* Ambient glowing backgrounds */
+  &__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.18;
+    z-index: 0;
+    pointer-events: none;
+
+    &--1 {
+      width: clamp(25rem, 40vw, 45rem);
+      height: clamp(25rem, 40vw, 45rem);
+      background-color: $accent-color;
+      top: 15%;
+      left: 10%;
+    }
+
+    &--2 {
+      width: clamp(20rem, 35vw, 40rem);
+      height: clamp(20rem, 35vw, 40rem);
+      background-color: $bg-footer;
+      bottom: 10%;
+      right: 10%;
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  &__content {
+    max-width: 65rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-family: $heading-font-family;
+    font-size: clamp(12rem, 25vw, 24rem);
+    font-weight: 700;
+    line-height: 0.85;
+    color: $heading-color;
+    margin-bottom: 2rem;
+    position: relative;
+    user-select: none;
+
+    /* Elegant gradient text */
+    background: linear-gradient(135deg, $heading-color 30%, $accent-color 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__subtitle {
+    margin-bottom: 1.5rem;
+  }
+
+  &__text {
+    max-width: 48rem;
+    margin-bottom: 4rem;
+    color: $text-primary;
+  }
+
+  &__actions {
+    .button1 {
+      padding-left: 4rem;
+      padding-right: 4rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        svg {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+}

@@ -29,6 +29,7 @@
 @use "layouts/main";
 @use "layouts/header";
 @use "layouts/footer";
+@use "layouts/404" as error404;
 
 // 5.1 Layout-related home sections
 @use "layouts/home_s1";
