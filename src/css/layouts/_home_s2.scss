@@ -60,20 +60,35 @@
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    //justify-content: center;
     align-items: flex-start;
+    width: 80%;
 
     @include md {
       padding: 5rem;
-      width: 60%; // Take up 60% of the card width for text
+      //width: 60%; // Take up 60% of the card width for text
     }
   }
 
   &__title {
-    color: $heading-color;
-    font-size: 3rem;
+    color: $white;
+    font-size: 4rem;
     font-weight: 700;
     margin-bottom: 0; // Removed bottom margin since there's no button below by default
+
+    // Fade-in and translate-up transition after the parent card finishes its animation
+    .home_s2__card-wrap.aos-init & {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .home_s2__card-wrap.aos-animate & {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition-delay: 1s; // Wait for the 1000ms card animation to complete
+    }
   }
 
   &__desc {

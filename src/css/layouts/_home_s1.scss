@@ -3,7 +3,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 75vh;
+  min-height: 100dvh;
 
   @include md {
     min-height: 100vh;
@@ -48,11 +48,11 @@
   &__container {
     position: relative;
     z-index: 3;
-    min-height: 75vh;
+    min-height: 100dvh;
     display: flex;
     align-items: stretch;
-    padding-top: calc(#{$header-offset-mobile} + 2rem);
-    padding-bottom: 1rem;
+    padding-top: calc(#{$header-offset-mobile} + 5rem);
+    padding-bottom: 3rem;
 
     @include sm {
       padding-bottom: 2rem;
@@ -89,7 +89,7 @@
   &__label {
     display: block;
     margin-bottom: 2rem;
-    color: $text-light;
+    color: #e7d9c5;
     opacity: 0;
     animation: fadeInDown 0.8s ease-out forwards;
     letter-spacing: 0.1em;
@@ -109,8 +109,8 @@
   &__title {
     margin-bottom: 2rem;
     color: $text-light;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    // opacity: 0;
+    //animation: fadeInUp 0.8s ease-out 0.2s forwards;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 
     @include md {
@@ -124,14 +124,14 @@
      ========================================================= */
 
   &__desc {
-    // color: $text-primary;
     color: $text-light;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 0.4s forwards;
-    font-size: 1.8rem;
+    font-size: 2rem;
     line-height: 1.7;
-    max-width: 48rem;
-    font-weight: 600;
+    //max-width: 48rem;
+    font-weight: 500;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 
     @include md {
       color: $heading-color;
@@ -167,6 +167,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -178,6 +179,7 @@
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

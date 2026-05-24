@@ -23,6 +23,7 @@ if (!$has_content) {
     <div class="home_s2__container l-container">
         <div class="home_s2__list">
             <?php
+            $visible_index = 0;
             for ($i = 1; $i <= 4; $i++) :
                 $cat = $section["cat_{$i}"];
                 
@@ -30,14 +31,18 @@ if (!$has_content) {
                 if (empty($cat['title'])) {
                     continue;
                 }
-
     
                 $title = $cat['title'] ?? '';
                 $image = $cat['image'] ?? '';
                 $desc = $cat['desc'] ?? ''; 
                 $link_url = $cat['url'] ?? '';
+
+                // Alternating animation effect: left and right
+                $aos_effect = ($visible_index % 2 === 0) ? 'fade-right' : 'fade-left';
+                $aos_delay = ($visible_index + 1) * 100;
+                $visible_index++;
             ?>
-                <div class="home_s2__card-wrap" data-aos="fade-up" data-aos-delay="<?php echo $i * 100; ?>" data-aos-duration="1000">
+                <div class="home_s2__card-wrap" data-aos="<?php echo $aos_effect; ?>" data-aos-delay="<?php echo $aos_delay; ?>" data-aos-duration="1000">
                     <a href="<?php echo esc_url($link_url); ?>" class="category-card">
                         
                         <?php if ($image) : ?>
