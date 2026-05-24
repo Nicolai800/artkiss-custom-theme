@@ -1,0 +1,252 @@
+@use "../abstracts" as *;
+
+.home-s6 {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  overflow: hidden; // Prevent horizontal scrollbars if slides extend outside container
+  background-color: $bg-primary;
+
+  @include md {
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+    gap: 1.5rem;
+
+    @include md {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      text-align: left;
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__title {
+    color: $heading-color;
+    
+    // Support wysiwyg editor margins
+    p, h2, h3, h4 {
+      margin: 0;
+      color: $heading-color;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: $body-font-family;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $accent-color;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    @include sm {
+      font-size: 1.5rem;
+    }
+
+    &-text {
+      position: relative;
+      padding-bottom: 2px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: currentColor;
+        transform: scaleX(1);
+        transform-origin: left center;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &-icon {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: $accent-hover;
+
+      .home-s6__cta-text::after {
+        transform: scaleX(0);
+        transform-origin: right center;
+      }
+
+      .home-s6__cta-icon {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  &__slider-wrapper {
+    position: relative;
+    padding: 0 1rem;
+
+    @include sm {
+      padding: 0;
+    }
+  }
+
+  &__slider {
+    // Allow slides to be visible beyond container borders for elegant mobile carousel look
+    overflow: visible !important;
+  }
+
+  &__slide {
+    height: auto;
+    
+    // Scale down and fade out adjacent slides on mobile
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease;
+    opacity: 0.4;
+    transform: scale(0.9);
+
+    // Reset layout on tablets and larger
+    @include sm {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    // Centered active slide on mobile
+    &.swiper-slide-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &__post {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background-color: $bg-secondary;
+    border: 1px solid $border-color;
+    box-shadow: $shadow-soft;
+    transition: border-color 0.3s ease;
+    
+    &-image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    &-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($black, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: $white;
+    }
+
+    &:hover {
+      border-color: rgba($accent-color, 0.3);
+
+      .home-s6__post-image {
+        transform: scale(1.06);
+      }
+
+      .home-s6__post-overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Custom Navigation Arrows
+  &__nav {
+    display: none; // Handled by touch gestures on mobile
+
+    @include md {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: $white;
+      border: 1px solid $border-color;
+      color: $text-primary;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: $shadow-soft;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background-color: $accent-color;
+        color: $white;
+        border-color: $accent-color;
+        transform: translateY(-50%) scale(1.05);
+      }
+
+      &--prev {
+        left: -24px;
+      }
+
+      &--next {
+        right: -24px;
+      }
+
+      // Swiper disabled button state
+      &.swiper-button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
+  }
+
+  // Custom Pagination Bullets
+  &__pagination {
+    position: static !important;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background-color: rgba($accent-color, 0.25);
+      opacity: 1;
+      border-radius: 50%;
+      margin: 0 !important;
+      transition: width 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+
+      &-active {
+        width: 24px;
+        border-radius: 4px;
+        background-color: $accent-color;
+      }
+    }
+  }
+}

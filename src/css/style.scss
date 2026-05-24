@@ -7,6 +7,7 @@
 // 2. Vendors
 @use "vendor/aos";
 @use "vendor/lenis";
+@use "vendor/swiper";
 
 // 3. Utilities
 @use "utils/reset";
@@ -37,6 +38,7 @@
 @use "layouts/home_s3";
 @use "layouts/home_s4";
 @use "layouts/home_s5";
+@use "layouts/home_s6";
 @use "layouts/contact";
 
 // 6. Components
@@ -48,4 +50,3 @@
 @use "woocommerce/archive";
 @use "woocommerce/single-product";
 @use "woocommerce/cart";
-
