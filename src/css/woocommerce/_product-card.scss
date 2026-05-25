@@ -32,6 +32,8 @@ ul.products li.product {
     display: none;
   }
 
+
+
   .woocommerce-LoopProduct-link {
     display: flex;
     flex-direction: column;
@@ -118,5 +120,38 @@ ul.products {
   &::before,
   &::after {
     display: none !important;
+  }
+}
+
+// Premium on sale badge (Base styles for all pages)
+.woocommerce span.onsale,
+.woocommerce-page span.onsale,
+span.onsale {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: auto; // Override WooCommerce default right: 0
+  background-color: $error-color;
+  color: $white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.6rem 1.2rem;
+  border-radius: 3rem;
+  line-height: 1;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba($black, 0.08);
+  min-height: auto;
+  min-width: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+
+  @include md {
+    top: 2.5rem;
+    left: 2.5rem;
+    font-size: 1.2rem;
+    padding: 0.7rem 1.4rem;
   }
 }

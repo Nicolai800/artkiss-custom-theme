@@ -158,6 +158,23 @@
     margin-top: 1rem;
     position: relative;
 
+    // Override badge positioning and padding on single product pages
+    .onsale {
+      top: 1.5rem;
+      left: 1.5rem;
+      padding: 0.8rem 1.6rem;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba($black, 0.1);
+      border-radius: 5rem;
+
+      @include md {
+        top: 2rem;
+        left: 2rem;
+        font-size: 1.3rem;
+        padding: 0.9rem 1.8rem;
+      }
+    }
+
     @include md {
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
@@ -507,7 +524,7 @@
     .single_variation_wrap {
       margin-top: 2rem;
       border-top: 1px dashed $border-color;
-      padding-top: 2.5rem;
+      //padding-top: 2.5rem;
 
       .woocommerce-variation-price {
         margin-bottom: 2rem;
@@ -623,7 +640,7 @@
   // 5. Tabs Block (Description, Info, Reviews)
   .woocommerce-tabs {
     grid-column: 1 / -1;
-    margin-top: 4rem;
+    //margin-top: 4rem;
     border-top: 1px solid $border-color;
     padding-top: 4rem;
 
@@ -990,7 +1007,7 @@
     grid-column: 1 / -1;
     margin-top: 5rem;
     border-top: 1px solid $border-color;
-    padding-top: 4rem;
+    padding: 2rem 0;
 
     h2 {
       font-family: $heading-font-family;
