@@ -1,3 +1,17 @@
+@use "../abstracts" as *;
+
 main {
   flex: 1 0 auto;
+}
+
+// Default page template padding-top to clear fixed header
+body.page-template-default,
+body.page:not(.home) {
+  main#up {
+    padding-top: calc(#{$header-offset-mobile} + 4rem);
+
+    @include md {
+      padding-top: calc(#{$header-offset-desktop} + 6rem);
+    }
+  }
 }

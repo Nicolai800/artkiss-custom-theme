@@ -1,11 +1,9 @@
 @use "../abstracts" as *;
 
 .contact-page {
-  padding-top: calc(#{$header-offset-mobile} + 4rem);
   padding-bottom: 6rem;
 
   @include md {
-    padding-top: calc(#{$header-offset-desktop} + 3rem);
     padding-bottom: 2rem;
     min-height: 100vh;
     display: flex;
