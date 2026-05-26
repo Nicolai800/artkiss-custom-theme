@@ -23,3 +23,8 @@ function artkiss_woocommerce_cart_count_fragments( $fragments ) {
     return $fragments;
 }
 add_filter( 'woocommerce_add_to_cart_fragments', 'artkiss_woocommerce_cart_count_fragments' );
+
+/**
+ * Remove default WooCommerce footer store notice and render it in header
+ */
+remove_action( 'wp_footer', 'woocommerce_demo_store' );

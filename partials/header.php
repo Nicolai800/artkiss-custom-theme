@@ -3,6 +3,10 @@ $logo_id = get_theme_mod('custom_logo');
 ?>
 
 <header class="l-header js-headroom">
+    <?php if ( function_exists( 'woocommerce_demo_store' ) ) : ?>
+        <?php woocommerce_demo_store(); ?>
+    <?php endif; ?>
+
     <div class="l-header__container l-container l-container--full">
 
         <?php if ($logo_id) : ?>
