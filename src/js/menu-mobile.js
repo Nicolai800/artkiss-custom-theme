@@ -58,13 +58,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   menuArrows.forEach(function (menuArrow) {
     menuArrow.addEventListener("click", function () {
-      var subMenu = this.parentElement.querySelector(".sub-menu");
+      var subMenu = menuArrow.parentElement.querySelector(".sub-menu");
 
       // Dodaj lub usuń klasę is-active w zależności od obecnego stanu
       if (subMenu.classList.contains("is-active")) {
         subMenu.classList.remove("is-active");
+        menuArrow.classList.remove("is-active");
       } else {
         subMenu.classList.add("is-active");
+        menuArrow.classList.add("is-active");
       }
     });
   });
