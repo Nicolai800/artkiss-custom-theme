@@ -1,0 +1,161 @@
+@use "../abstracts" as *;
+
+/* =========================================================
+   WOOCOMMERCE CHECKBOXES & RADIO BUTTONS FORCED VISIBILITY
+   ========================================================= */
+
+// Force checkboxes and radio buttons to be visible and use the theme accent color.
+// This overrides any global or WooCommerce default rules that might hide them.
+.woocommerce-checkout {
+  input[type="checkbox"].input-checkbox {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    left: auto !important;
+    margin: 0 1rem 0 0 !important;
+    cursor: pointer;
+    vertical-align: middle;
+    flex-shrink: 0;
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+    accent-color: $accent-color !important;
+    -webkit-appearance: checkbox !important;
+    -moz-appearance: checkbox !important;
+    appearance: checkbox !important;
+  }
+
+  input[type="radio"].input-radio {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    left: auto !important;
+    margin: 0 1rem 0 0 !important;
+    cursor: pointer;
+    vertical-align: middle;
+    flex-shrink: 0;
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+    accent-color: $accent-color !important;
+    -webkit-appearance: radio !important;
+    -moz-appearance: radio !important;
+    appearance: radio !important;
+  }
+}
+
+/* =========================================================
+   WOOCOMMERCE TERMS AND CONDITIONS CHECKBOX
+   ========================================================= */
+
+// Layout styling for terms and conditions checkbox and its link/text
+.woocommerce-terms-and-conditions-wrapper {
+  .woocommerce-form__label-for-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    cursor: pointer;
+    font-family: $body-font-family;
+    font-size: 1.4rem;
+    color: $text-primary;
+    line-height: 1.5;
+    user-select: none;
+  }
+
+  .woocommerce-terms-and-conditions-checkbox-text {
+    line-height: 1.6;
+    display: inline-block;
+  }
+
+  .woocommerce-terms-and-conditions-link {
+    color: $accent-color;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: $transition;
+
+    &:hover {
+      color: $accent-hover;
+    }
+  }
+}
+
+/* =========================================================
+   PAYMENT METHOD SELECTION STYLING
+   ========================================================= */
+
+// Style the payment methods section, aligning labels with the radio buttons
+.woocommerce-checkout-payment {
+  .payment_methods {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li.wc_payment_method {
+      list-style: none;
+      margin-bottom: 1.5rem;
+
+      label {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        font-family: $body-font-family;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $heading-color;
+
+        img {
+          max-height: 2.2rem;
+          width: auto;
+          margin-left: 1rem;
+          vertical-align: middle;
+        }
+      }
+
+      .payment_box {
+        margin-top: 1rem;
+        padding: 1.2rem 1.6rem;
+        background-color: rgba($bg-secondary, 0.4);
+        border-radius: 0.8rem;
+        border-left: 3px solid $accent-color;
+        font-size: 1.4rem;
+        line-height: 1.6;
+        color: $text-primary;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+/* =========================================================
+   PRODUCT NAME STYLING
+   ========================================================= */
+   
+.product-name {
+  font-family: $body-font-family;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: $heading-color;
+
+  .product-quantity {
+    color: $accent-color;
+    font-weight: 600;
+    margin-left: 0.6rem;
+  }
+}
+
+/* =========================================================
+   PLACE ORDER BUTTON
+   ========================================================= */
+
+#place_order {
+  font-size: 2.6rem;
+  line-height: 1.7;
+  margin-top: 3rem;
+
+  @include md {
+    padding: 2rem 5rem
+  }
+}
