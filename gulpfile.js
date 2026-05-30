@@ -50,15 +50,15 @@ gulp.task("css", function () {
     .pipe(sass().on("error", sass.logError))
     .pipe(concat("build-style.css"))
     .pipe(
-      csso({
-        sourceMap: false,
-        debug: false,
-      }),
-    )
-    .pipe(
       autoprefixer({
         overrideBrowserslist: ["last 2 versions"],
         cascade: false,
+      }),
+    )
+    .pipe(
+      csso({
+        sourceMap: false,
+        debug: false,
       }),
     )
     .pipe(gulp.dest(dirs.build))

@@ -37,3 +37,7 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 
     return $urls;
 }
+
+add_filter('tiny_mce_plugins', 'disable_emojis_tinymce');
+add_filter('wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2);
+

@@ -1,0 +1,23 @@
+@use "../abstracts" as *;
+
+/* =========================================================
+   WOOCOMMERCE CART BLOCK STYLING
+   ========================================================= */
+
+// Prevent product badge/sale badge from overflowing and pushing layout
+.wc-block-components-product-badge {
+  // Mobile styles: wrap text normally without breaking words, make font smaller to fit
+  white-space: normal !important;
+  max-width: 100% !important;
+  font-size: 11px !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  color: #9d6d57 !important;
+
+  // Desktop styles: restore nowrap and default font size
+  @include sm {
+    white-space: nowrap !important;
+    font-size: var(--wp-preset--font-size--x-small, calc(var(--wp-preset--font-size--small, 14px) * 0.875)) !important;
+  }
+}
+
