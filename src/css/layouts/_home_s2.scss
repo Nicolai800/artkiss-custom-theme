@@ -87,7 +87,7 @@
       transform: translateY(0);
       transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                   transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      transition-delay: 1s; // Wait for the 1000ms card animation to complete
+      transition-delay: 0.5s;
     }
   }
 

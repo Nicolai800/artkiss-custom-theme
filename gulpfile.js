@@ -7,7 +7,7 @@ const autoprefixer = require("gulp-autoprefixer");
 const babel = require("gulp-babel");
 const uglify = require("gulp-uglify-es").default;
 const include = require("gulp-include");
-const livereload = require("gulp-livereload");
+const browserSync = require("browser-sync").create();
 const fs = require("fs");
 
 let dirs = {
@@ -31,7 +31,7 @@ gulp.task("js", () =>
     .pipe(concat("build-js.js"))
     .pipe(uglify())
     .pipe(gulp.dest(dirs.build))
-    .pipe(livereload()),
+    .pipe(browserSync.stream()),
 );
 
 gulp.task("jslibs", () =>
@@ -41,7 +41,7 @@ gulp.task("jslibs", () =>
     .pipe(include())
     .pipe(uglify())
     .pipe(gulp.dest(dirs.build))
-    .pipe(livereload()),
+    .pipe(browserSync.stream()),
 );
 
 gulp.task("css", function () {
@@ -62,7 +62,7 @@ gulp.task("css", function () {
       }),
     )
     .pipe(gulp.dest(dirs.build))
-    .pipe(livereload());
+    .pipe(browserSync.stream());
 });
 
 gulp.task("combine-jsbuild", function () {
@@ -78,25 +78,36 @@ gulp.task("combine-jsbuild", function () {
 
 gulp.task("build", gulp.series("css", "js", "jslibs", "combine-jsbuild"));
 
-gulp.task("watchphp", function () {
-  return gulp.src("*.php").pipe(livereload());
+gulp.task("browser-sync", function (done) {
+  browserSync.init({
+    proxy: "artkiss-castom.local",
+    host: "artkiss-castom.local",
+    open: "external",
+    port: 3000,
+  });
+  done();
 });
 
 const runWatchers = () => {
-  gulp.watch(["*.php", "**/*.php"], gulp.series("watchphp"));
+  gulp.watch(["*.php", "**/*.php"]).on("change", browserSync.reload);
   gulp.watch(dirs.css, gulp.series("css"));
-  gulp.watch(dirs.js, gulp.series("js", "combine-jsbuild"));
-  gulp.watch(dirs.jslib, gulp.series("jslibs", "combine-jsbuild"));
-  livereload.listen();
+  gulp.watch(dirs.js, gulp.series("js", "combine-jsbuild")).on("change", browserSync.reload);
+  gulp.watch(dirs.jslib, gulp.series("jslibs", "combine-jsbuild")).on("change", browserSync.reload);
 };
 
-gulp.task("default", function () {
-  if (fs.existsSync(dirs.buildjs) && fs.existsSync(dirs.buildjslibs)) {
+gulp.task("default", gulp.series(
+  function (done) {
+    if (!fs.existsSync(dirs.buildjs) || !fs.existsSync(dirs.buildjslibs)) {
+      console.log("Building app");
+      gulp.series("build")(done);
+    } else {
+      done();
+    }
+  },
+  "browser-sync",
+  function (done) {
     console.log("Im watching");
     runWatchers();
-  } else {
-    console.log("Building app");
-    gulp.series("build")();
-    runWatchers();
+    done();
   }
-});
+));

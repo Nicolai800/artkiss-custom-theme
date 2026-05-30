@@ -19,8 +19,8 @@
     transition: $transition-slow;
 
     @include md {
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
     }
   }
 
@@ -216,11 +216,7 @@
 
 .header {
   &--unpinned {
-    transform: none;
-
-    @include md {
-      transform: translateY(-100%);
-    }
+    transform: translateY(-100%);
   }
 
   &--pinned,
