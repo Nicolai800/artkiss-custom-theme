@@ -16,7 +16,7 @@ $form_shortcode = get_field('contact_form_shortcode');
 
 ?>
 
-<main class="main-content">
+<section class="main-content">
     <section class="contact-page">
         <div class="contact-page__container l-container">
             <h1 class="contact-page__title heading1" >
@@ -88,7 +88,7 @@ $form_shortcode = get_field('contact_form_shortcode');
             </div>
         </div>
     </section>
-</main>
+<section>
 
 <?php
 get_footer();

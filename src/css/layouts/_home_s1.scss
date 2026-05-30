@@ -51,7 +51,7 @@
     min-height: 100dvh;
     display: flex;
     align-items: stretch;
-    padding-top: calc(#{$header-offset-mobile} + 2rem);
+    padding-top: calc(#{$header-offset-mobile} + 3rem);
     padding-bottom: 1rem;
 
     @include sm {
