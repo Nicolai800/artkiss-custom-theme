@@ -15,7 +15,7 @@ $title   = !empty($custom_title) ? $custom_title : get_the_title();
 $content = !empty($custom_content) ? $custom_content : get_the_content();
 ?>
 
-<section class="main-content">
+<div class="main-content">
     <section class="policy">
         <div class="policy__container l-container">
             <h1 class="policy__title heading1">
@@ -29,7 +29,7 @@ $content = !empty($custom_content) ? $custom_content : get_the_content();
             <?php endif; ?>
         </div>
     </section>
-</section>
+</div>
 
 <?php
 get_footer();

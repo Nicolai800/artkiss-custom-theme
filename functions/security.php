@@ -5,8 +5,8 @@
  */
 function remove_cssjs_ver($src)
 {
-    if (!strpos($src, 'build-style') && !strpos($src, 'build-combined')) {
-        if (strpos($src, '?ver=')) {
+    if (strpos($src, 'build-style') === false && strpos($src, 'build-combined') === false) {
+        if (strpos($src, 'ver=') !== false) {
             $src = remove_query_arg('ver', $src);
         }
     }
@@ -38,6 +38,4 @@ remove_filter('the_content_feed', 'wp_staticize_emoji');
 remove_filter('comment_text_rss', 'wp_staticize_emoji');
 remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
 remove_action('wp_head', 'wp_resource_hints', 2);
-add_filter('tiny_mce_plugins', 'disable_emojis_tinymce');
-add_filter('wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2);
 remove_action('welcome_panel', 'wp_welcome_panel');

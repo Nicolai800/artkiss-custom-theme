@@ -15,7 +15,6 @@ function remove_admin_menus() {
 	remove_submenu_page( 'options-general.php', 'options-writing.php' );
 	remove_submenu_page( 'options-general.php', 'options-discussion.php' );
 	remove_submenu_page( 'options-general.php', 'options-media.php' );
-	define('DISALLOW_FILE_EDIT', TRUE);
 }
 add_action( 'admin_menu', 'remove_admin_menus' );
 

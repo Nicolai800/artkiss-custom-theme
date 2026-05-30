@@ -14,4 +14,4 @@ function load_scripts()
     	'url' => admin_url( 'admin-ajax.php' )
 	));
 }
-add_action('wp_footer', 'load_scripts');
+add_action('wp_enqueue_scripts', 'load_scripts');

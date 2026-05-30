@@ -36,14 +36,12 @@ function asset($asset)
  */
 function svg($asset)
 {
-  $getOptions = array(
-    "ssl" => array(
-      "verify_peer"      => false,
-      "verify_peer_name" => false
-    )
-  );
-  echo file_get_contents(get_template_directory_uri() . '/dist/img/' . $asset, false, stream_context_create($getOptions));
+  $file_path = get_template_directory() . '/dist/img/' . $asset;
+  if (file_exists($file_path)) {
+    echo file_get_contents($file_path);
+  }
 }
+
 
 function detectSafari($classes)
 {

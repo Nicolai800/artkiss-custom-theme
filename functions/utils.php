@@ -1,17 +1,6 @@
 <?php
 
 /**
- * Register user session
- */
-function registerSession()
-{
-	if (!session_id()) {
-		session_start();
-	}
-}
-add_action('init', 'registerSession');
-
-/**
  * Hide private pages from nav menu
  */
 function wp_nav_menu_hide_private_pages ($items, $args) {

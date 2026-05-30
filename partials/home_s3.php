@@ -27,7 +27,7 @@ $products = $section['products'] ?? false;
 
         <?php 
         if ($products && is_array($products)) : 
-            $product_ids = array_map(function($p) { return $p->ID; }, $products);
+            $product_ids = array_map(function($p) { return is_object($p) ? $p->ID : (int)$p; }, $products);
             
             $args = array(
                 'post_type'      => 'product',
