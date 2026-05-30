@@ -43,7 +43,7 @@
      LEFT COLUMN: INFO
      ========================================================= */
 
-  // Общие стили для обеих карточек (DRY)
+  // Shared styles for both cards (DRY)
   &__info,
   &__form-wrapper {
     background-color: $bg-secondary;

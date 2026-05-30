@@ -3,7 +3,7 @@
 
         <div class="l-footer__top">
 
-            <?php // Лого
+            <?php // Logo
             $logo_id = get_theme_mod('custom_logo');
             if ($logo_id) : ?>
                 <a class="l-footer__logo" href="<?php echo esc_url(get_site_url()); ?>">
@@ -12,7 +12,7 @@
             <?php endif; ?>
 
             <div class="l-footer__menu">
-                <?php // Меню
+                <?php // Menu
                 wp_nav_menu([
                     'theme_location' => 'footer',
                     'container'      => false,

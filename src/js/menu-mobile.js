@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     menuArrow.addEventListener("click", function () {
       var subMenu = menuArrow.parentElement.querySelector(".sub-menu");
 
-      // Dodaj lub usuń klasę is-active w zależności od obecnego stanu
+      // Toggle the is-active class based on the current state
       if (subMenu.classList.contains("is-active")) {
         subMenu.classList.remove("is-active");
         menuArrow.classList.remove("is-active");

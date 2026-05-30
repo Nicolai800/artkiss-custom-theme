@@ -5,7 +5,7 @@
  */
 function artkiss_customizer_settings($wp_customize) {
 
-    // Секция
+    // Section
     $wp_customize->add_section('artkiss_social_media', [
         'title'    => 'Social Media',
         'priority' => 30,

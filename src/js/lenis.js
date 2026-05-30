@@ -23,7 +23,7 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-// Кнопка "наверх" в футере
+// "Back to top" button in the footer
 document.querySelectorAll(".anchor-item-up").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     lenis.scrollTo(this.getAttribute("href"), {
@@ -32,7 +32,7 @@ document.querySelectorAll(".anchor-item-up").forEach((anchor) => {
   });
 });
 
-// Якорные ссылки внутри страницы
+// Anchor links within the page
 document.querySelectorAll(".anchor-item").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
