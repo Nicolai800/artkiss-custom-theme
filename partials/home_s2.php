@@ -48,10 +48,15 @@ if (!$has_content) {
                         <?php if ($image) : ?>
                             <div class="category-card__bg">
                                 <?php 
-                                if (is_array($image)) {
-                                    echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">';
-                                } elseif (is_numeric($image)) {
-                                    echo wp_get_attachment_image($image, 'full');
+                                $image_id = is_array($image) ? ($image['ID'] ?? null) : (is_numeric($image) ? $image : null);
+                                if ($image_id) {
+                                    echo wp_get_attachment_image($image_id, 'category_desktop', false, [
+                                        'sizes' => '(max-width: 768px) 100vw, 50vw',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async'
+                                    ]);
+                                } elseif (is_array($image)) {
+                                    echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '" loading="lazy" decoding="async">';
                                 }
                                 ?>
                             </div>

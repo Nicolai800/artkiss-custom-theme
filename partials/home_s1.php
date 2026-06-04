@@ -21,17 +21,35 @@ $hero_url    = $hero['hero_button_url'] ?? '';
     <?php if ($hero_bg || $hero_bg_mob) : ?>
         <picture class="hero__bg-picture">
             <?php if ($hero_bg_mob) : ?>
-                <source media="(max-width: 768px)" srcset="<?php echo esc_url($hero_bg_mob['url']); ?>">
+                <?php
+                $hero_bg_mob_id = is_array($hero_bg_mob) ? ($hero_bg_mob['ID'] ?? null) : (is_numeric($hero_bg_mob) ? $hero_bg_mob : null);
+                $mob_url = $hero_bg_mob_id ? wp_get_attachment_image_url($hero_bg_mob_id, 'large') : null;
+                if (!$mob_url && is_array($hero_bg_mob)) {
+                    $mob_url = $hero_bg_mob['url'] ?? '';
+                }
+                ?>
+                <?php if ($mob_url) : ?>
+                    <source media="(max-width: 768px)" srcset="<?php echo esc_url($mob_url); ?>">
+                <?php endif; ?>
             <?php endif; ?>
             
             <?php
-            $fallback_url = $hero_bg ? $hero_bg['url'] : $hero_bg_mob['url'];
+            $hero_bg_id = is_array($hero_bg) ? ($hero_bg['ID'] ?? null) : (is_numeric($hero_bg) ? $hero_bg : null);
+            $desktop_url = $hero_bg_id ? wp_get_attachment_image_url($hero_bg_id, 'fullhd') : null;
+            if (!$desktop_url && is_array($hero_bg)) {
+                $desktop_url = $hero_bg['url'] ?? '';
+            }
+            
+            $fallback_url = $desktop_url ? $desktop_url : (is_array($hero_bg_mob) ? ($hero_bg_mob['url'] ?? '') : wp_get_attachment_image_url($hero_bg_mob_id, 'full'));
             ?>
             <img
                 class="hero__bg-img"
                 src="<?php echo esc_url($fallback_url); ?>"
                 alt=""
                 aria-hidden="true"
+                fetchpriority="high"
+                decoding="async"
+                loading="eager"
             >
         </picture>
     <?php endif; ?>

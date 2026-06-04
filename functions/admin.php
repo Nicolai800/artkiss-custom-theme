@@ -10,10 +10,7 @@ add_filter('use_block_editor_for_post_type', '__return_false', 100);
  */
 function remove_admin_menus() {
 	remove_menu_page('edit.php');
-	remove_menu_page( 'edit-comments.php' );
-	remove_menu_page( 'tools.php' );
 	remove_submenu_page( 'options-general.php', 'options-writing.php' );
-	remove_submenu_page( 'options-general.php', 'options-discussion.php' );
 	remove_submenu_page( 'options-general.php', 'options-media.php' );
 }
 add_action( 'admin_menu', 'remove_admin_menus' );
