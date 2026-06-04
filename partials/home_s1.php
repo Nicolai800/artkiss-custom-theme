@@ -48,8 +48,8 @@ $hero_url    = $hero['hero_button_url'] ?? '';
                 alt=""
                 aria-hidden="true"
                 fetchpriority="high"
-                decoding="async"
                 loading="eager"
+                decoding="sync"
             >
         </picture>
     <?php endif; ?>

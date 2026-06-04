@@ -1,0 +1,31 @@
+@use "sass:color";
+@use "../abstracts" as *;
+
+
+#moove_gdpr_cookie_info_bar {
+  background-color: $black !important;
+  border-top: 1px solid rgba($accent-color, 0.25);
+  
+  .moove-gdpr-cookie-notice {
+    margin: 0 !important;
+
+    @include sm {
+      font-size: 1.4rem !important;
+    }
+
+    p {
+      margin: 0 0 0.8rem 0 !important;
+      font-size: 1.3rem !important;
+      line-height: 1.5 !important;
+      color: rgba($text-light, 0.85) !important;
+
+      @include sm {
+        font-size: 1.4rem !important;
+      }
+
+      &:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}
