@@ -103,7 +103,7 @@
 
   &__policy {
     a {
-      color: $text-secondary;
+      color: $text-primary;
       font-size: 1.4rem;
       transition: $transition;
 
@@ -115,7 +115,7 @@
 
   &__copyright {
     span {
-      color: $text-secondary;
+      color: $text-primary;
       font-size: 1.4rem;
 
       a {
@@ -136,9 +136,9 @@
     width: 4.8rem;
     height: 4.8rem;
     border-radius: 50%;
-    border: 1px solid rgba($accent-color, 0.4);
-    background-color: rgba($accent-color, 0.05);
-    color: $accent-color;
+    background-color: $accent-color;
+    border-color: $accent-color;
+    color: $text-light;
     transition: $transition;
     
     position: absolute;
@@ -152,9 +152,9 @@
     }
 
     &:hover {
-      background-color: $accent-color;
-      border-color: $accent-color;
-      color: $text-light;
+      border: 1px solid $text-primary;
+      background-color: rgba($accent-color, 0.05);
+      color: $black;
       transform: translateY(-3px);
     }
 

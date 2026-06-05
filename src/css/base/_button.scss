@@ -11,7 +11,8 @@
 .wc-block-components-checkout-place-order-button,
 .cf7-theme-btnn,
 body.woocommerce:not(.woocommerce-uses-block-theme) ul.products li.product .button,
-ul.products li.product .button {
+ul.products li.product .button,
+.wc-block-grid__product-add-to-cart .wp-block-button__link {
   @include flexCenter;
   column-gap: 1.5rem;
   min-width: 25rem;

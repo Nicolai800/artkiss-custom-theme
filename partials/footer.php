@@ -6,7 +6,7 @@
             <?php // Logo
             $logo_id = get_theme_mod('custom_logo');
             if ($logo_id) : ?>
-                <a class="l-footer__logo" href="<?php echo esc_url(get_site_url()); ?>">
+                <a class="l-footer__logo" href="<?php echo esc_url(get_site_url()); ?>" aria-label="<?php bloginfo('name'); ?>">
                     <?php echo wp_get_attachment_image($logo_id, 'full'); ?>
                 </a>
             <?php endif; ?>

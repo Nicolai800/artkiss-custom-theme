@@ -21,3 +21,27 @@
   }
 }
 
+/* =========================================================
+  EMPTY CART
+   ========================================================= */
+
+.wp-block-woocommerce-empty-cart-block {
+  text-align: center;
+  padding: 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+
+  .wc-block-cart__empty-cart__title {
+    font-family: $heading-font-family;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    color: $heading-color;
+    font-weight: 600;
+    width: 100%;
+
+    &.with-empty-cart-icon:before{
+      background-color: $text-primary;
+    }
+  }
+}
+
+

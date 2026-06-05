@@ -28,4 +28,27 @@
       }
     }
   }
+
+  // Accept and GDPR buttons contrast improvement
+  .mgbutton,
+  .moove-gdpr-infobar-allow-all,
+  .mg-button {
+    background-color: $white !important;
+    color: $black !important;
+    border: 2px solid $white !important;
+    font-weight: 600 !important;
+    padding: 0.8rem 2rem !important;
+    border-radius: 30px !important;
+    font-size: 1.4rem !important;
+    transition: $transition !important;
+    cursor: pointer !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    
+    &:hover {
+      background-color: transparent !important;
+      color: $white !important;
+      border-color: $white !important;
+    }
+  }
 }

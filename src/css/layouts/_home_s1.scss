@@ -116,7 +116,7 @@
     color: $text-light;
     // opacity: 0;
     //animation: fadeInUp 0.8s ease-out 0.2s forwards;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
 
     @include md {
       color: $heading-color;
@@ -134,12 +134,12 @@
     animation: fadeInUp 0.8s ease-out 0.4s forwards;
     font-size: 2rem;
     line-height: 1.7;
-    //max-width: 48rem;
     font-weight: 500;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
 
     @include md {
       color: $heading-color;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     }
   }
 

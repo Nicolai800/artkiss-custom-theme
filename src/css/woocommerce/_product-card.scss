@@ -1,20 +1,22 @@
 @use "../abstracts" as *;
 
 body.woocommerce:not(.woocommerce-uses-block-theme) ul.products li.product,
-ul.products li.product {
+ul.products li.product,
+.wc-block-grid__products li.wc-block-grid__product {
   background-color: rgba($white, 0.7);
   border-radius: 1.5rem;
   box-shadow: $shadow-soft;
   border: 1px solid rgba($accent-hover, 0.4);
-  //padding: 1.2rem;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   position: relative;
-  width: 100% !important;
-  float: none !important;
-  margin: 0 !important;
+  // width: 100% !important;
+   max-width: none !important;
+  // flex: none !important;
+  // float: none !important;
+  // margin: 0 !important;
 
   @include md {
     padding: 1.5rem;
@@ -34,24 +36,33 @@ ul.products li.product {
 
 
 
-  .woocommerce-LoopProduct-link {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  .woocommerce-LoopProduct-link,
+  .wc-block-grid__product-link {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
     text-decoration: none;
   }
 
-  img {
+  img,
+  .wc-block-grid__product-image {
     width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 1rem;
     margin-bottom: 2rem;
     box-shadow: 0 5px 15px rgba($black, 0.05);
+
+    img {
+      margin-bottom: 0;
+      box-shadow: none;
+      border-radius: 1rem;
+    }
   }
 
 
-  .woocommerce-loop-product__title {
+  .woocommerce-loop-product__title,
+  .wc-block-grid__product-title {
     font-family: $heading-font-family;
     font-size: 1.8rem;
     color: $heading-color;
@@ -65,7 +76,8 @@ ul.products li.product {
   }
 
 
-  .price {
+  .price,
+  .wc-block-grid__product-price {
     font-family: $body-font-family;
     font-size: 1.6rem;
     color: $accent-color;
@@ -90,7 +102,8 @@ ul.products li.product {
     }
   }
 
-  .button {
+  .button,
+  .wc-block-grid__product-add-to-cart .wp-block-button__link {
     margin: auto 1rem 1rem 1rem;
     min-width: 0;
     padding: 1rem 0.5rem;
@@ -101,10 +114,19 @@ ul.products li.product {
       font-size: 1.4rem;
     }
   }
+
+  .wc-block-grid__product-add-to-cart {
+    margin-top: auto;
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 body.woocommerce:not(.woocommerce-uses-block-theme) ul.products,
-ul.products {
+ul.products,
+.wc-block-grid__products {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -126,7 +148,8 @@ ul.products {
 // Premium on sale badge (Base styles for all pages)
 .woocommerce span.onsale,
 .woocommerce-page span.onsale,
-span.onsale {
+span.onsale,
+.wc-block-grid__product-onsale {
   position: absolute;
   top: 1rem;
   left: 1rem;
