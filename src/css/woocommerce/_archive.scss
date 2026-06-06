@@ -13,7 +13,7 @@
   padding-top: calc(#{$header-offset-mobile} + 2rem);
 
   @include md {
-    padding-top: calc(#{$header-offset-desktop} + 3rem);
+    padding-top: calc(#{$header-offset-desktop} + 1rem);
   }
 
   // Hide default sidebar on category/shop pages for clean full-width grid layout

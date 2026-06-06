@@ -7,7 +7,8 @@
 // Force checkboxes and radio buttons to be visible and use the theme accent color.
 // This overrides any global or WooCommerce default rules that might hide them.
 .woocommerce-checkout {
-  input[type="checkbox"].input-checkbox {
+  input[type="checkbox"].input-checkbox,
+  #payment input[type="checkbox"] {
     display: inline-block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -25,7 +26,8 @@
     appearance: checkbox !important;
   }
 
-  input[type="radio"].input-radio {
+  input[type="radio"].input-radio,
+  #payment input[type="radio"] {
     display: inline-block !important;
     visibility: visible !important;
     opacity: 1 !important;

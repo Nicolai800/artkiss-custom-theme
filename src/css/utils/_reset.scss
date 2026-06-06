@@ -45,7 +45,7 @@ p:empty {
 
 textarea,
 select,
-input,
+input:not([type="checkbox"]):not([type="radio"]),
 button {
   -webkit-appearance: none;
   -moz-appearance: none;

@@ -12,11 +12,11 @@ ul.products li.product,
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   position: relative;
-  // width: 100% !important;
-   max-width: none !important;
-  // flex: none !important;
-  // float: none !important;
-  // margin: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  flex: none !important;
+  float: none !important;
+  margin: 0 !important;
 
   @include md {
     padding: 1.5rem;
