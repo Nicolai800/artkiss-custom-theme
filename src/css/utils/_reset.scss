@@ -45,13 +45,22 @@ p:empty {
 
 textarea,
 select,
-input:not([type="checkbox"]):not([type="radio"]),
+input,
 button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   color: inherit;
   background: transparent;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-appearance: revert;
+  -moz-appearance: revert;
+  appearance: revert;
+  background: revert;
+  color: revert;
 }
 
 strong {

@@ -161,3 +161,9 @@
     padding: 2rem 5rem
   }
 }
+
+// Hide the account creation fields wrapper from the checkout page
+.woocommerce-account-fields {
+  display: none !important;
+}
+
